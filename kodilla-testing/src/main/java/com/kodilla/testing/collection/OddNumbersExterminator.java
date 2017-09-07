@@ -1,10 +1,7 @@
 package com.kodilla.testing.collection;
 
-import lombok.Data;
-
 import java.util.ArrayList;
 
-@Data
 public class OddNumbersExterminator {
 
     ArrayList<Integer> exterminate(ArrayList<Integer> numbers) {
