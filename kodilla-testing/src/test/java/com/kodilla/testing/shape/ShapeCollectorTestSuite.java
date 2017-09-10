@@ -73,7 +73,7 @@ public class ShapeCollectorTestSuite {
     }
 
     @Test
-    public void testRemoveFigureFromEmptyList()testRemoveFigureFromEmptyList() {
+    public void testRemoveFigureFromEmptyList() {
         //Given
         ShapeCollector shapeCollector = new ShapeCollector();
         //When
