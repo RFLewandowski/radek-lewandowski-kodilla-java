@@ -1,23 +1,19 @@
 package com.kodilla.testing.forum.statistics;
 
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
-
-import java.util.List;
+import lombok.*;
 
 @Getter
-@Setter(AccessLevel.PRIVATE)
+@Setter
 @ToString
-
+@EqualsAndHashCode
 public class StatisticsEngine {
-    long numberOfUsers;
-    long numberOfPosts;
-    long numberOfComments;
-    double averagePostsPerUser;
-    double averageCommentsPerUser;
-    double averageCommentsPerPost;
+
+    private long numberOfUsers;
+    private long numberOfPosts;
+    private long numberOfComments;
+    private double averagePostsPerUser;
+    private double averageCommentsPerUser;
+    private double averageCommentsPerPost;
 
 
     void calculateAdvStatistics(Statistics statistics) {
@@ -25,14 +21,38 @@ public class StatisticsEngine {
         numberOfPosts = statistics.postsCount();
         numberOfComments = statistics.commentsCount();
 
-        averagePostsPerUser = numberOfPosts / numberOfUsers;
-        averageCommentsPerUser = numberOfComments / numberOfUsers;
-        averageCommentsPerPost = numberOfComments / numberOfPosts;
+
+        averagePostsPerUser = calcAveragePostsPerUser();
+        averageCommentsPerUser = calcAverageCommentsPerUser();
+        averageCommentsPerPost = calcAverageCommentsPerPost();
+    }
+
+
+    private double calcAveragePostsPerUser() {
+        if (numberOfUsers == 0) {
+            return 0;
+        } else {
+            return (double) numberOfComments / (double) numberOfUsers;
+        }
+    }
+
+    private double calcAverageCommentsPerUser() {
+        if (numberOfUsers == 0) {
+            return 0;
+        } else {
+            return (double) numberOfPosts / (double) numberOfUsers;
+        }
+    }
+
+    private double calcAverageCommentsPerPost() {
+        if (numberOfPosts == 0) {
+            return 0;
+        } else {
+            return (double) numberOfComments / (double) numberOfPosts;
+        }
     }
 
     String ShowStatistics() {
         return this.toString();
     }
-
-
 }
