@@ -72,6 +72,16 @@ public class ShapeCollectorTestSuite {
         Assert.assertEquals(0, shapeCollector.getQuantity());
     }
 
+    @Test
+    public void testRemoveFigureFromEmptyList()testRemoveFigureFromEmptyList() {
+        //Given
+        ShapeCollector shapeCollector = new ShapeCollector();
+        //When
+        Boolean result =shapeCollector.removeFigure(new Triangle(1,1));
+        //Then
+        Assert.assertFalse(result);
+    }
+
 
     @Test
     public void testGetFigure() {
@@ -92,10 +102,10 @@ public class ShapeCollectorTestSuite {
         Shape testTriangle = new Triangle(4, 5);
         ShapeCollector shapeCollector = new ShapeCollector();
         shapeCollector.addFigure(testTriangle);
-        String expectedName= "triangle ";
+        String expectedName = "triangle ";
         //When
         String figureNames = shapeCollector.showFigures();
         //Then
-        Assert.assertEquals(expectedName,figureNames);
+        Assert.assertEquals(expectedName, figureNames);
     }
 }
