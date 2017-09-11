@@ -44,9 +44,19 @@ public class CollectionTestSuite {
     @Test
     public void testOddNumbersExterminatorNormalList() {
         //Given
+
+        /*TODO
+        1. whoAmI możnaby wyjąć do metody prywatnej (oczywiscie wtedy trzebaby zmienic na inny numerek w getStackTrace())
+        */
         String whoAmI = Thread.currentThread().getStackTrace()[1].getMethodName();
 
         OddNumbersExterminator one = new OddNumbersExterminator();
+
+
+        /*TODO
+        2. Tworzenie listy w teście możnaby wyjąć do metody prywatnej - jest to ładnie kompletny zestaw zadań, który zaburza czytelność głównej metody testowej, a sam w sobie robi dokładnie jedną rzecz - tworzy listę. Podobnie tworzenie oczekiwanej listy. Możesz do tego np. wykorzystać klasę pomocniczą ImmutablePair: https://commons.apache.org/proper/commons-lang/javadocs/api-3.1/org/apache/commons/lang3/tuple/ImmutablePair.html, ponieważ zestawy danych wejściowych i oczekiwanych są ze sobą nierozerwalnie związane.
+         */
+
 
         ArrayList<Integer> testList = new ArrayList<>();
         testList.add(-1);
