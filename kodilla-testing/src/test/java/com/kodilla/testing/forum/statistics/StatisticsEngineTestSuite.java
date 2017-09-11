@@ -12,6 +12,22 @@ import static org.mockito.Mockito.when;
 public class StatisticsEngineTestSuite {
 
 
+    //TODO te mocki też można pewnie jakos uprościć, np. w ten sposób ze zrobisz metodę buildStandardMock() a potem zmieniasz mockowane wartości (chociaż nie jestem pewien czy jak już raz zrobisz when(...).then() to możesz nadpisać to jeszcze raz inną wartością, ale pewnie możesz).
+
+
+    /*TODO
+    Temat zaawansowany: mockowanie za pomocą adnotacji. Jeśli w każdym teście będziesz mockował obiekt Statistics, możesz zrobić w teście pole:
+    @Mock
+    private Statistics statsMock;
+    i dodać metodę:
+    @Before
+    public void setUp() {
+	    initMocks(this);
+    }
+    Wtedy przed każdym pojedyńczym testem będzie zainicjowany mock wszystkich pól, które mają adnotację @Mock. Poczytaj o tym jeśli Cię to zainteresuje.
+    */
+
+
     @Test
     public void calculateAdvStatisticsNoPosts() {
         //Given
@@ -26,21 +42,12 @@ public class StatisticsEngineTestSuite {
         when(statsMock.commentsCount()).thenReturn(4);
         StatisticsEngine seReal = new StatisticsEngine();
 
-        StatisticsEngine seExpected = new StatisticsEngine();
-        seExpected.setNumberOfUsers(4);
-        seExpected.setNumberOfPosts(0);
-        seExpected.setNumberOfComments(4);
-        seExpected.setAveragePostsPerUser(1.0);
-        seExpected.setAverageCommentsPerUser(0.0);
-        seExpected.setAverageCommentsPerPost(0.0);
+        StatisticsEngine seExpected = new StatisticsEngine(4, 0, 4, 1.0, 0.0, 0.0);
 
         //When
         seReal.calculateAdvStatistics(statsMock);
         //Then
-        //System.out.println(seReal.toString());
         Assert.assertEquals(seExpected, seReal);
-
-
     }
 
     @Test
@@ -57,13 +64,7 @@ public class StatisticsEngineTestSuite {
         when(statsMock.commentsCount()).thenReturn(4);
         StatisticsEngine seReal = new StatisticsEngine();
 
-        StatisticsEngine seExpected = new StatisticsEngine();
-        seExpected.setNumberOfUsers(4);
-        seExpected.setNumberOfPosts(1000);
-        seExpected.setNumberOfComments(4);
-        seExpected.setAveragePostsPerUser(1.0);
-        seExpected.setAverageCommentsPerUser(250.0);
-        seExpected.setAverageCommentsPerPost(0.004);
+        StatisticsEngine seExpected = new StatisticsEngine(4, 1000, 4, 1.0, 250.0, 0.004);
 
         //When
         seReal.calculateAdvStatistics(statsMock);
@@ -86,13 +87,7 @@ public class StatisticsEngineTestSuite {
         when(statsMock.commentsCount()).thenReturn(0);
         StatisticsEngine seReal = new StatisticsEngine();
 
-        StatisticsEngine seExpected = new StatisticsEngine();
-        seExpected.setNumberOfUsers(4);
-        seExpected.setNumberOfPosts(4);
-        seExpected.setNumberOfComments(0);
-        seExpected.setAveragePostsPerUser(0.0);
-        seExpected.setAverageCommentsPerUser(1.0);
-        seExpected.setAverageCommentsPerPost(0.0);
+        StatisticsEngine seExpected = new StatisticsEngine(4, 4, 0, 0.0, 1.0, 0.0);
 
         //When
         seReal.calculateAdvStatistics(statsMock);
@@ -115,13 +110,7 @@ public class StatisticsEngineTestSuite {
         when(statsMock.commentsCount()).thenReturn(4);
         StatisticsEngine seReal = new StatisticsEngine();
 
-        StatisticsEngine seExpected = new StatisticsEngine();
-        seExpected.setNumberOfUsers(4);
-        seExpected.setNumberOfPosts(4000);
-        seExpected.setNumberOfComments(4);
-        seExpected.setAveragePostsPerUser(1.0);
-        seExpected.setAverageCommentsPerUser(1000.0);
-        seExpected.setAverageCommentsPerPost(0.001);
+        StatisticsEngine seExpected = new StatisticsEngine(4, 4000, 4, 1.0, 1000.0, 0.001);
 
         //When
         seReal.calculateAdvStatistics(statsMock);
@@ -144,13 +133,7 @@ public class StatisticsEngineTestSuite {
         when(statsMock.commentsCount()).thenReturn(4000);
         StatisticsEngine seReal = new StatisticsEngine();
 
-        StatisticsEngine seExpected = new StatisticsEngine();
-        seExpected.setNumberOfUsers(4);
-        seExpected.setNumberOfPosts(4);
-        seExpected.setNumberOfComments(4000);
-        seExpected.setAveragePostsPerUser(1000.0);
-        seExpected.setAverageCommentsPerUser(1.0);
-        seExpected.setAverageCommentsPerPost(1000.0);
+        StatisticsEngine seExpected = new StatisticsEngine(4, 4, 4000, 1000.0, 1.0, 1000.0);
 
         //When
         seReal.calculateAdvStatistics(statsMock);
@@ -169,13 +152,7 @@ public class StatisticsEngineTestSuite {
         when(statsMock.commentsCount()).thenReturn(4);
         StatisticsEngine seReal = new StatisticsEngine();
 
-        StatisticsEngine seExpected = new StatisticsEngine();
-        seExpected.setNumberOfUsers(0);
-        seExpected.setNumberOfPosts(4);
-        seExpected.setNumberOfComments(4);
-        seExpected.setAveragePostsPerUser(0.0);
-        seExpected.setAverageCommentsPerUser(0.0);
-        seExpected.setAverageCommentsPerPost(1.0);
+        StatisticsEngine seExpected = new StatisticsEngine(0, 4, 4, 0.0, 0.0, 1.0);
 
         //When
         seReal.calculateAdvStatistics(statsMock);
@@ -198,13 +175,7 @@ public class StatisticsEngineTestSuite {
 
         StatisticsEngine seReal = new StatisticsEngine();
 
-        StatisticsEngine seExpected = new StatisticsEngine();
-        seExpected.setNumberOfUsers(100);
-        seExpected.setNumberOfPosts(4);
-        seExpected.setNumberOfComments(4);
-        seExpected.setAveragePostsPerUser(0.04);
-        seExpected.setAverageCommentsPerUser(0.04);
-        seExpected.setAverageCommentsPerPost(1.0);
+        StatisticsEngine seExpected = new StatisticsEngine(100, 4, 4, 0.04, 0.04, 1.0);
 
         //When
         seReal.calculateAdvStatistics(statsMock);

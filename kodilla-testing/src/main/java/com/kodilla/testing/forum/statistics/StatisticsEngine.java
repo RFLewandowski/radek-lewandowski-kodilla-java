@@ -1,11 +1,12 @@
 package com.kodilla.testing.forum.statistics;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Getter
-@Setter
-@ToString
-@EqualsAndHashCode
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class StatisticsEngine {
 
     private long numberOfUsers;
@@ -15,16 +16,27 @@ public class StatisticsEngine {
     private double averageCommentsPerUser;
     private double averageCommentsPerPost;
 
+    //TODO Engine nie powinien mieć pól - tylko mieć metodę publiczną, która zwraca obiekt AdvancedStatistics, która jest czystym DTO (czyli ma same pola a nie ma żadnej logiki)
+
 
     void calculateAdvStatistics(Statistics statistics) {
-        numberOfUsers = statistics.usersNames().size();
+        numberOfUsers = calcNumberOfUsers(statistics);
         numberOfPosts = statistics.postsCount();
         numberOfComments = statistics.commentsCount();
-
 
         averagePostsPerUser = calcAveragePostsPerUser();
         averageCommentsPerUser = calcAverageCommentsPerUser();
         averageCommentsPerPost = calcAverageCommentsPerPost();
+    }
+
+    private long calcNumberOfUsers(Statistics statistics) {
+        long result = 0;
+        try {
+            result = statistics.usersNames().size();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
     }
 
 
