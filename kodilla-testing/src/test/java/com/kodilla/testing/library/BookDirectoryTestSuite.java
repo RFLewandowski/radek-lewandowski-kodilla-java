@@ -129,7 +129,6 @@ public class BookDirectoryTestSuite {
         assertEquals(5, theListOf5Books.size());
     }
 
-
     private List<Book> generateListOfNBooks(int booksQuantity) {
         List<Book> resultList = new ArrayList<>();
         for (int n = 1; n <= booksQuantity; n++) {
