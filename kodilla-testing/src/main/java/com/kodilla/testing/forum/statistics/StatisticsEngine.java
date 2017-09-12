@@ -20,7 +20,7 @@ public class StatisticsEngine {
 
 
     void calculateAdvStatistics(Statistics statistics) {
-        numberOfUsers = calcNumberOfUsers(statistics);
+        numberOfUsers = statistics.usersNames().size();
         numberOfPosts = statistics.postsCount();
         numberOfComments = statistics.commentsCount();
 
@@ -28,17 +28,6 @@ public class StatisticsEngine {
         averageCommentsPerUser = calcAverageCommentsPerUser();
         averageCommentsPerPost = calcAverageCommentsPerPost();
     }
-
-    private long calcNumberOfUsers(Statistics statistics) {
-        long result = 0;
-        try {
-            result = statistics.usersNames().size();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return result;
-    }
-
 
     private double calcAveragePostsPerUser() {
         if (numberOfUsers == 0) {
