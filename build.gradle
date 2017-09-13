@@ -1,13 +1,13 @@
 buildscript {
-	ext {
-		springBootVersion = '1.5.6.RELEASE'
-	}
-	repositories {
-		mavenCentral()
-	}
-	dependencies {
-		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-	}
+    ext {
+        springBootVersion = '1.5.6.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
 }
 
 apply plugin: 'java'
@@ -17,15 +17,15 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
 
 repositories {
-	mavenCentral()
+    mavenCentral()
 }
 
 
 dependencies {
-	compile('org.apache.commons:commons-lang3:3.6')
-	compileOnly ('org.projectlombok:lombok:1.16.18')
-	//compile('org.springframework.boot:spring-boot-starter-web')
-	//testCompile('org.springframework.boot:spring-boot-starter-test')
+    compile('org.apache.commons:commons-lang3:3.6')
+    compileOnly('org.projectlombok:lombok:1.16.18')
+    //compile('org.springframework.boot:spring-boot-starter-web')
+    //testCompile('org.springframework.boot:spring-boot-starter-test')
     testCompile('org.mockito:mockito-all:1.10.19')
     testCompile('junit:junit:4.12')
 }
