@@ -19,7 +19,7 @@ public class StatisticsEngine {
     //TODO Engine nie powinien mieć pól - tylko mieć metodę publiczną, która zwraca obiekt AdvancedStatistics, która jest czystym DTO (czyli ma same pola a nie ma żadnej logiki)
 
     void calculateAdvStatistics(Statistics statistics) {
-        numberOfUsers = statistics.usersNames().size();
+        numberOfUsers = statistics.usersNames().size(); //problem in case statistics.usersNames() is null
         numberOfPosts = statistics.postsCount();
         numberOfComments = statistics.commentsCount();
 

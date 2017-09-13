@@ -1,5 +1,6 @@
 package com.kodilla.testing.collection;
 
+//import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.junit.*;
 
@@ -61,7 +62,6 @@ public class CollectionTestSuite {
 
 
     private ImmutablePair<ArrayList<Integer>, ArrayList<Integer>> generateTestPairLists() {
-        ImmutablePair<ArrayList<Integer>, ArrayList<Integer>> testPairList;
 
         ArrayList<Integer> testList = new ArrayList<>();
         testList.add(-1);
@@ -76,7 +76,6 @@ public class CollectionTestSuite {
         expected1.add(222222222);
         expected1.add(8888222);
 
-        testPairList = new ImmutablePair<>(testList, expected1);
-        return testPairList;
+        return ImmutablePair.of(testList, expected1);
     }
 }
