@@ -1,6 +1,5 @@
 package com.kodilla.testing.collection;
 
-//import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.junit.*;
 
