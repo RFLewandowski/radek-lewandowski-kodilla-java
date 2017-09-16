@@ -16,6 +16,6 @@ public final class People {
         theList.add("Corinne Foster");
         theList.add("Khloe fry");
         theList.add("Martin Valenzuela");
-        return new ArrayList<String>(theList);
+        return new ArrayList<>(theList);
     }
 }
