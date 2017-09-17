@@ -10,5 +10,5 @@ public class ForumUser {
     String userName;
     char Sex; //probably enum would be better
     LocalDate birthDate;
-    int publishedPostsNumber;
+    int publishedPostsCount;
 }

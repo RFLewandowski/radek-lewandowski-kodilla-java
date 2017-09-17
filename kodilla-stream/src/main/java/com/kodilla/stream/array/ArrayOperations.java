@@ -5,11 +5,9 @@ import lombok.NonNull;
 import java.util.OptionalDouble;
 import java.util.stream.IntStream;
 
-import static sun.misc.Version.println;
-
 public interface ArrayOperations {
 
-    static Double getAverage(@NonNull int[] numbers) {
+    static OptionalDouble getAverage(@NonNull int[] numbers) {
 
         IntStream
                 .range(0, numbers.length)
@@ -20,10 +18,11 @@ public interface ArrayOperations {
                 .mapToDouble(n -> numbers[n])
                 .average();
 
-        if (result.isPresent()) {
-            return result.getAsDouble();
-        } else {
-            return null;
-        }
+
+                if (result.isPresent()) {
+                        return result;
+                    } else {
+                        throw new IllegalArgumentException("Probably numbers array is empty");
+                }
     }
 }

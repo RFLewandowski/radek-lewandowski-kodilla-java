@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.stream.IntStream;
 
 public class BookTestSuite {
+    //TODO Tutaj mamy klasę, w której dzieje się dużo pod maską, a dane testowe są tightly coupled z kodem testowanej klasy. BookDirectory de fakto jest testową klasą wspomagającą - więc to co jest uruchamiane w jej konstruktorze (ładowanie danych) przenieśmy do jakiejś klasy typu BookDirectoryAssembler, która będzie w pakiecie test, i jeśli chcemy tych danych używać, to jawnie wywołajmy BookDirectoryAssembler.assemble() która nam zwróci BookDirectory uzupełniony danymi, których potrzebujemy.
     @Test
     public void should_getYearOfPublication() {
         //Given

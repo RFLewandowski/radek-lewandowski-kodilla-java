@@ -14,6 +14,9 @@ public class WorldTestSuite {
     public void should_calculateAllPeople() {
         //Given
         //values of population has to differ because hashSet has nothing else to compare in equals; no matter as it is training assignment
+        //TODO moze prywatne metody na budowanie kazdego kontynentu?
+        //TODO Ponieważ te dwie metody bedą podobne (tworzenie krajów), pomyśl czy da się wyjąc ich wspólny kod do trzeciej prywatnej metody tak, żeby zminimalizować powtórzenia. Nie twierdzę że byłoby to najlepsze rozwiązanie, ale pomyśl jak możnaby to rozwiązać.
+
         Country poland = new Country(new BigDecimal("1000000001"));
         Country france = new Country(new BigDecimal("1000000002"));
         Country holland = new Country(new BigDecimal("1000000003"));
