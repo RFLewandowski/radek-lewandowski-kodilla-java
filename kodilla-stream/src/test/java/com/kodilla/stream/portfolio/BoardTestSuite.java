@@ -4,8 +4,10 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.OptionalDouble;
 
 import static java.util.stream.Collectors.toList;
 
@@ -138,16 +140,25 @@ public class BoardTestSuite {
     }
 
     @Test
-    public void should_returnAverageDaysWorkingOnTask(){
+    public void should_returnAverageDaysWorkingOnTask() {
         //Given
         Board project = prepareTestData();
+        List<TaskList> inProgressTasks = new ArrayList<>();
+        inProgressTasks.add(new TaskList("In progress"));
+
+        OptionalDouble expectedResult = OptionalDouble.of(10.0);
 
         //When
-
-
+        OptionalDouble averageDays = project
+                .getTaskLists()
+                .stream()
+                .filter(inProgressTasks::contains)
+                .flatMap(tl -> tl.getTasks().stream())
+                .map(t -> t.getCreated())
+                .mapToDouble(ld -> ChronoUnit.DAYS.between(ld, LocalDate.now()))
+                .average();
         //Then
 
-
+        Assert.assertEquals(expectedResult, averageDays);
     }
-
 }
