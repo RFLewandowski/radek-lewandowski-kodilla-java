@@ -99,7 +99,7 @@ public class BoardTestSuite {
     }
 
     @Test
-    public void should_FindOutdatedTasks() {
+    public void should_findOutdatedTasks() {
         //Given
         Board project = prepareTestData();
 
@@ -119,7 +119,7 @@ public class BoardTestSuite {
     }
 
     @Test
-    public void should_findTaskInProgress10DaysOrMore() {
+    public void should_countTaskInProgress10DaysOrMore() {
         //Given
         Board project = prepareTestData();
 
@@ -135,6 +135,19 @@ public class BoardTestSuite {
 
         //Then
         Assert.assertEquals(2, longTasks);
+    }
+
+    @Test
+    public void should_returnAverageDaysWorkingOnTask(){
+        //Given
+        Board project = prepareTestData();
+
+        //When
+
+
+        //Then
+
+
     }
 
 }
