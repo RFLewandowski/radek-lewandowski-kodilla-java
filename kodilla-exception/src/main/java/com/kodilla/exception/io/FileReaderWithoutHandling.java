@@ -6,20 +6,12 @@ import java.nio.file.Files;
 import java.util.stream.Stream;
 
 public class FileReaderWithoutHandling {
-    public void readFile() {
+    public void readFile() throws IOException {
 
         ClassLoader classLoader = getClass().getClassLoader();
         File file = new File(classLoader.getResource("file/names.txt").getFile());
-
-        try (Stream<String> fileLines = Files.lines(file.toPath())){
-            fileLines.forEach(System.out::println);
-        } catch (IOException e) {
-            System.out.println("Something went totally wrong!");
-            e.printStackTrace();
-        }
-        finally {
-            System.out.println("Finally...");
-        }
+        Stream<String> fileLines = Files.lines(file.toPath());
+        fileLines.forEach(System.out::println);
 
 
     }
