@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.util.stream.Stream;
 
-public class FileReader {
+public class FileReaderWithoutHandling {
     public void readFile() {
 
         ClassLoader classLoader = getClass().getClassLoader();
