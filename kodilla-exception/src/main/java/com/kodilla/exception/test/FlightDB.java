@@ -25,7 +25,7 @@ public class FlightDB {
         if (accessibleAirports.containsKey(targetAirport)) {
             return accessibleAirports.get(targetAirport);
         } else {
-            throw new RouteNotFoundException();
+            throw new RouteNotFoundException("Pull UP!!");
         }
     }
 }

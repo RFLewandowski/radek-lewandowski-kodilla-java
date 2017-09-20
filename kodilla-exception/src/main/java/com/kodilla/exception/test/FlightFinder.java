@@ -1,7 +1,7 @@
 package com.kodilla.exception.test;
 
 public class FlightFinder {
-    public static void main(String[] args) throws RouteNotFoundException {
+    public static void main(String[] args) {
         FlightDB flightDB = new FlightDB();
         flightDB.init();
 
@@ -11,13 +11,14 @@ public class FlightFinder {
         flights[2] = new Flight("here", "Beijing");
         flights[3] = new Flight("here", "Heathrow");
         flights[4] = new Flight("here", "Denver");
-        flights[5] = new Flight("here", "Tokio");
+        flights[5] = new Flight("here", "Tokyo");
 
         for (Flight flight : flights) {
             System.out.print("Is airport in " + flight.getArrivalAirport() + " acessible: ");
             try {
                 System.out.println(flightDB.findFilght(flight));
             } catch (RouteNotFoundException e) {
+                System.out.println("there is no airport in " + flight.getArrivalAirport() + " anymore.");
                 e.printStackTrace();
             }
         }
