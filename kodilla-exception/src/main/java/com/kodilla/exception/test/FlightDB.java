@@ -7,9 +7,9 @@ import java.util.Map;
 
 @Value
 public class FlightDB {
-    Map<String, Boolean> accessibleAirports = new HashMap<>();
+    private Map<String, Boolean> accessibleAirports = new HashMap<>();
 
-    void init() {
+    public void init() {
         accessibleAirports.put("Hartsfield–Jackson", false);
         accessibleAirports.put("Beijing", false);
         accessibleAirports.put("Dubai", true);
@@ -19,7 +19,7 @@ public class FlightDB {
         accessibleAirports.put("Kuala Lumpur", true);
     }
 
-    Boolean findFilght(Flight flight) throws RouteNotFoundException {
+    public Boolean findFilght(Flight flight) throws RouteNotFoundException {
         String targetAirport = flight.getArrivalAirport();
 
         if (accessibleAirports.containsKey(targetAirport)) {
