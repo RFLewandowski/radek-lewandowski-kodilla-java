@@ -5,7 +5,7 @@ public class FlightFinder {
         FlightDB flightDB = new FlightDB();
         flightDB.init();
 
-        Flight[] flights= new Flight[6];
+        Flight[] flights = new Flight[6];
         flights[0] = new Flight("here", "Dubai");
         flights[1] = new Flight("here", "Hartsfield–Jackson");
         flights[2] = new Flight("here", "Beijing");
@@ -15,7 +15,11 @@ public class FlightFinder {
 
         for (Flight flight : flights) {
             System.out.print("Is airport in " + flight.getArrivalAirport() + " acessible: ");
-            System.out.println(flightDB.findFilght(flight));
+            try {
+                System.out.println(flightDB.findFilght(flight));
+            } catch (RouteNotFoundException e) {
+                e.printStackTrace();
+            }
         }
     }
 }
