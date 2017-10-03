@@ -56,7 +56,7 @@ public class MovieStore {
             strings
                     .stream()
                     .map(s1 -> s1 + "!")
-                    .forEach(System.out::println);
+                    .forEach(System.out::print);
         });
 
         return "";
