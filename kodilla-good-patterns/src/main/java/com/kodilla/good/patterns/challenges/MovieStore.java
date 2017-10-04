@@ -1,5 +1,6 @@
 package com.kodilla.good.patterns.challenges;
 
+import java.lang.reflect.Array;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -8,16 +9,13 @@ public class MovieStore {
     public Map<String, List<String>> getMovies() {
 
         List<String> ironManTranslations = new ArrayList<>();
-        ironManTranslations.add("Żelazny Człowiek");
-        ironManTranslations.add("Iron Man");
+        Collections.addAll(ironManTranslations, "Żelazny Człowiek", "Iron Man");
 
         List<String> avengersTranslations = new ArrayList<>();
-        avengersTranslations.add("Mściciele");
-        avengersTranslations.add("Avengers");
+        Collections.addAll(avengersTranslations, "Mściciele", "Avengers");
 
         List<String> flashTranslations = new ArrayList<>();
-        flashTranslations.add("Błyskawica");
-        flashTranslations.add("Flash");
+        Collections.addAll(flashTranslations, "Błyskawica", "Flash");
 
         Map<String, List<String>> booksTitlesWithTranslations = new HashMap<>();
         booksTitlesWithTranslations.put("IM", ironManTranslations);
@@ -28,7 +26,6 @@ public class MovieStore {
     }
 
     public String getMovieTitles() {
-
         return getMovies()
                 .entrySet()
                 .stream()
