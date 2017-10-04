@@ -32,7 +32,8 @@ public class MovieStore {
         return getMovies()
                 .entrySet()
                 .stream()
-                .map(Map.Entry::getValue).flatMap(strings -> strings.stream())
+                .map(Map.Entry::getValue)
+                .flatMap(strings -> strings.stream())
                 .collect(Collectors.joining("!"));
     }
 }
