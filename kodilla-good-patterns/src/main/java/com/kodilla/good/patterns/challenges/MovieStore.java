@@ -27,38 +27,12 @@ public class MovieStore {
         return booksTitlesWithTranslations;
     }
 
-//    public String getMovieTitles() {
-//
-//                String result = getMovies()
-//                .entrySet()
-//                .stream()
-//                .map(Map.Entry::getValue)
-//                .collect(Collectors.joining("!"));
-//        return result;
-//    }
-
-
-//    public String getMovieTitles() {
-//
-//        String result = getMovies()
-//                .forEach((s, strings) -> {
-//                    strings
-//                            .stream()
-//                            .collect(Collectors.joining("!"));
-//                });
-//        return result;
-//    }
-
-
     public String getMovieTitles() {
 
-        getMovies().forEach((s, strings) -> {
-            strings
-                    .stream()
-                    .map(s1 -> s1 + "!")
-                    .forEach(System.out::print);
-        });
-
-        return "";
+        return getMovies()
+                .entrySet()
+                .stream()
+                .map(Map.Entry::getValue).flatMap(strings -> strings.stream())
+                .collect(Collectors.joining("!"));
     }
 }
