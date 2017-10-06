@@ -1,4 +1,4 @@
-package com.kodilla.good.patterns.challenges;
+package com.kodilla.good.patterns.challenges.firstChallenge;
 
 public class App {
     public static void main(String[] args) {

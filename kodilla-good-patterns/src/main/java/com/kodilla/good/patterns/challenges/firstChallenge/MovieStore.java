@@ -1,4 +1,4 @@
-package com.kodilla.good.patterns.challenges;
+package com.kodilla.good.patterns.challenges.firstChallenge;
 
 import java.lang.reflect.Array;
 import java.util.*;
