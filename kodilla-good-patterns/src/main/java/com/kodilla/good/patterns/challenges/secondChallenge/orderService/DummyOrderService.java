@@ -10,7 +10,7 @@ public class DummyOrderService implements OrderService {
     public boolean order(User user, Map<String, Integer> products) {
         System.out.println(">>Spakujcie :");
 
-        String basket = Arrays.toString(new Map[]{products});
+        String basket = products.toString();
         System.out.println(basket);
         System.out.println(" i wyslijcie do " + user.getUsername() + "\n");
 

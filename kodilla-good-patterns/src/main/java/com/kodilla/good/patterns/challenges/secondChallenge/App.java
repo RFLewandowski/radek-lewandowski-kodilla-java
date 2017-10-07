@@ -12,8 +12,12 @@ public class App {
         OrderRequestRetriever orderRequestRetriever = new OrderRequestRetriever();
         OrderRequest orderRequest = orderRequestRetriever.retrieve();
 
+        DummyInformationService dummyInformationService = new DummyInformationService();
+        DummyOrderService dummyOrderService = new DummyOrderService();
+        DummyOrderRepository dummyOrderRepository = new DummyOrderRepository();
+
         OrderProcessor orderProcessor = new OrderProcessor(
-                new DummyInformationService(), new DummyOrderService(), new DummyOrderRepository());
+                dummyInformationService,dummyOrderService,dummyOrderRepository);
         orderProcessor.process(orderRequest);
     }
 }

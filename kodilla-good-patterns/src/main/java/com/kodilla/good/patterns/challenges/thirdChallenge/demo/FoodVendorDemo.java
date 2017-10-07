@@ -15,7 +15,7 @@ public class FoodVendorDemo {
         System.out.println(vendorID + "może dostarczyć:");
 
         Map vendorsProductsMap = foodVendor.getProducts();
-        String vendorsProducts = Arrays.toString(new Map[]{vendorsProductsMap});
+        String vendorsProducts = vendorsProductsMap.toString();
         System.out.println(vendorsProducts);
         System.out.println("\n");
     }
