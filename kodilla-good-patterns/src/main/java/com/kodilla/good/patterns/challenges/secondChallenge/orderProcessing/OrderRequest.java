@@ -1,4 +1,4 @@
-package com.kodilla.good.patterns.challenges.secondChallenge;
+package com.kodilla.good.patterns.challenges.secondChallenge.orderProcessing;
 
 import lombok.Value;
 

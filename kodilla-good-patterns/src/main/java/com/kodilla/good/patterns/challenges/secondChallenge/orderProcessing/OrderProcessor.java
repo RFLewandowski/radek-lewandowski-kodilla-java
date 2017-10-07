@@ -1,5 +1,9 @@
-package com.kodilla.good.patterns.challenges.secondChallenge;
+package com.kodilla.good.patterns.challenges.secondChallenge.orderProcessing;
 
+import com.kodilla.good.patterns.challenges.secondChallenge.DTO.OrderDto;
+import com.kodilla.good.patterns.challenges.secondChallenge.informationService.InformationService;
+import com.kodilla.good.patterns.challenges.secondChallenge.orderService.OrderService;
+import com.kodilla.good.patterns.challenges.secondChallenge.repository.OrderRepository;
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor

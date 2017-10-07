@@ -1,4 +1,6 @@
-package com.kodilla.good.patterns.challenges.secondChallenge;
+package com.kodilla.good.patterns.challenges.secondChallenge.orderService;
+
+import com.kodilla.good.patterns.challenges.secondChallenge.orderProcessing.User;
 
 import java.util.Arrays;
 import java.util.Map;
