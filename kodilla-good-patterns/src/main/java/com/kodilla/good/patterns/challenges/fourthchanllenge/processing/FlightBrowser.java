@@ -27,7 +27,16 @@ public class FlightBrowser {
                 .getDb()
                 .entrySet()
                 .stream()
-                .map(integerFlightRouteEntry->in)
+                .collect(Collectors.toMap(HashMap.Entry::getKey,
+                        e->e
+                                .getValue()
+                                .getRoute()
+                                .size()));
+
+
+
+        for //filtrowanie w forze i sprawdzanei pozycji z size -1
+
     }
 
     public Map<Integer, FlightRoute> findAllVia(DummyDB db, String via) {
