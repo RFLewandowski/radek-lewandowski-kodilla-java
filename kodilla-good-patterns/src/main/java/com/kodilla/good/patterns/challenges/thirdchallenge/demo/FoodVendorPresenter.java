@@ -6,7 +6,7 @@ import com.kodilla.good.patterns.challenges.thirdchallenge.foodvendors.FoodVendo
 import java.util.HashMap;
 import java.util.Map;
 
-public class FoodVendorDemo {
+public class FoodVendorPresenter {
 
     public void whatCanProvide(FoodVendor foodVendor) {
         String vendorID = foodVendor.getVendorId();

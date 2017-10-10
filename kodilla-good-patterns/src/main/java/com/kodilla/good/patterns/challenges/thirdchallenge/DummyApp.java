@@ -1,6 +1,6 @@
 package com.kodilla.good.patterns.challenges.thirdchallenge;
 
-import com.kodilla.good.patterns.challenges.thirdchallenge.demo.FoodVendorDemo;
+import com.kodilla.good.patterns.challenges.thirdchallenge.demo.FoodVendorPresenter;
 import com.kodilla.good.patterns.challenges.thirdchallenge.foodvendors.ExtraFoodShop;
 import com.kodilla.good.patterns.challenges.thirdchallenge.foodvendors.FoodVendor;
 import com.kodilla.good.patterns.challenges.thirdchallenge.foodvendors.GlutenFreeShop;
@@ -17,7 +17,7 @@ public class DummyApp {
         Collections.addAll(fv, new HealthyShop(), new GlutenFreeShop(), new ExtraFoodShop());
 
         for (FoodVendor foodVendor : fv) {
-            FoodVendorDemo presentingVendor = new FoodVendorDemo();
+            FoodVendorPresenter presentingVendor = new FoodVendorPresenter();
             presentingVendor.whatCanProvide(foodVendor);
             presentingVendor.testOrder(foodVendor);
         }
