@@ -2,30 +2,32 @@ package com.kodilla.good.patterns.challenges.fourthchanllenge.repository;
 
 import lombok.Value;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 @Value
 public class DummyDB {
-    Map<Integer, FlightRoute> db = new HashMap<>();
+    private Map<Integer, FlightRoute> db = new HashMap<>();
 
-    static {
-        ArrayList<String> f1= new ArrayList<>(); //tutaj zawartość flightRoute
+    public void setUpDb() {
+        FlightRoute fr = null;
+        ArrayList[] routes = this.initRoutes();
 
-
-
-
-
-        List<FlightRoute> flightRoutes = new ArrayList(); //tutaj tworzenei obiektów flight route
-        for (int i = 0; i < 5; i++) {
-            flightRoutes.add(new FlightRoute());
+        for (int i = 0; i <= 5; i++) {
+            fr = new FlightRoute(routes[i]);
+            db.put(i, fr);
         }
-        
-        
-        
-//        Collections.addAll(flightRoutes,) //tutaj wypełnainie obiektów flight route zawartoscią
+    }
 
-
-// brakuje jeszcze wypełniania bazy danych fliht routami
-
+    private ArrayList[] initRoutes() {
+        ArrayList<String> f0 = new ArrayList<>(Arrays.asList("Gdansk", "Wroclaw", "Krakow"));
+        ArrayList<String> f1 = new ArrayList<>(Arrays.asList("Katowice", "Warszawa", "Gdansk"));
+        ArrayList<String> f2 = new ArrayList<>(Arrays.asList("Katowice", "Warszawa", "Zielona gora"));
+        ArrayList<String> f3 = new ArrayList<>(Arrays.asList("Warszawa", "Moskwa", "Wladywostok"));
+        ArrayList<String> f4 = new ArrayList<>(Arrays.asList("Warszawa", "Moskwa", "Tokio"));
+        ArrayList<String> f5 = new ArrayList<>(Arrays.asList("Warszawa", "Berlin", "Frankfurt"));
+        return new ArrayList[]{f0, f1, f2, f3, f4, f5};
     }
 }
