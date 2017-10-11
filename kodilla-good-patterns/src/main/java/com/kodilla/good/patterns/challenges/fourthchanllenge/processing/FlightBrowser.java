@@ -23,20 +23,16 @@ public class FlightBrowser {
 
     public Map<Integer, FlightRoute> findAllTo(DummyDB db, String to) {// może zwyczajnie nie da się tego zrobić jednym streamem??
 
-        Map lengths = db
+        return db
                 .getDb()
                 .entrySet()
                 .stream()
-                .collect(Collectors.toMap(HashMap.Entry::getKey,
-                        e->e
+                .filter(integerFlightRouteEntry -> integerFlightRouteEntry
                                 .getValue()
                                 .getRoute()
-                                .size()));
-
-
-
-        for //filtrowanie w forze i sprawdzanei pozycji z size -1
-
+                                .toString()
+                                .endsWith(to+"]"))
+                .collect(Collectors.toMap(HashMap.Entry::getKey, HashMap.Entry::getValue));
     }
 
     public Map<Integer, FlightRoute> findAllVia(DummyDB db, String via) {

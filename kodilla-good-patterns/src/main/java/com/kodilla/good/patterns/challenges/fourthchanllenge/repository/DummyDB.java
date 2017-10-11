@@ -24,9 +24,9 @@ public class DummyDB {
     private ArrayList[] initRoutes() {
         ArrayList<String> f0 = new ArrayList<>(Arrays.asList("Gdansk", "Wroclaw", "Krakow"));
         ArrayList<String> f1 = new ArrayList<>(Arrays.asList("Katowice", "Warszawa", "Gdansk"));
-        ArrayList<String> f2 = new ArrayList<>(Arrays.asList("Katowice", "Warszawa", "Zielona gora"));
+        ArrayList<String> f2 = new ArrayList<>(Arrays.asList("Katowice", "Tokio", "Zielona gora"));
         ArrayList<String> f3 = new ArrayList<>(Arrays.asList("Warszawa", "Moskwa", "Wladywostok"));
-        ArrayList<String> f4 = new ArrayList<>(Arrays.asList("Warszawa", "Moskwa", "Tokio"));
+        ArrayList<String> f4 = new ArrayList<>(Arrays.asList("Warszawa", "Moskwa", "Krakow"));
         ArrayList<String> f5 = new ArrayList<>(Arrays.asList("Warszawa", "Berlin", "Frankfurt"));
         return new ArrayList[]{f0, f1, f2, f3, f4, f5};
     }
