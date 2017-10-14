@@ -10,8 +10,15 @@ public final class Library {
     private final List<String> books = new ArrayList<>();
     //private LibraryDbController libraryDbController;
 
-    @Autowired
     private LibraryDbController libraryDbController;
+
+
+    public Library(LibraryDbController libraryDbController) {
+        this.libraryDbController = libraryDbController;
+    }
+    public Library(){
+
+    }
 
 
     public void saveToDb() {
