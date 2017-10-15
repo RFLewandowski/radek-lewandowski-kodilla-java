@@ -3,6 +3,7 @@ package com.kodilla.good.patterns.challenges.fourthchanllenge;
 import com.kodilla.good.patterns.challenges.fourthchanllenge.processing.FlightBrowser;
 import com.kodilla.good.patterns.challenges.fourthchanllenge.repository.DummyDB;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -15,7 +16,6 @@ public class FlightBrowserTestSuite {
     @Test
     public void Should_FindFlightsFrom() {
         //Given
-        init();
         String expectedResult = "{3=FlightRoute(route=[Warszawa, Moskwa, Wladywostok]), 4=FlightRoute(route=[Warszawa," +
                 " Moskwa, Krakow, Sopot]), 5=FlightRoute(route=[Warszawa, Berlin, Frankfurt, Amsterdam, Paryz])}";
 
@@ -31,7 +31,6 @@ public class FlightBrowserTestSuite {
     @Test
     public void Should_FindFlightsTo() {
         //Given
-        init();
         String expectedResult = "{5=FlightRoute(route=[Warszawa, Berlin, Frankfurt, Amsterdam, Paryz])}";
 
         //When
@@ -46,7 +45,6 @@ public class FlightBrowserTestSuite {
     @Test
     public void Should_FindFlightsVia() {
         //Given
-        init();
         String expectedResult = "{3=FlightRoute(route=[Warszawa, Moskwa, Wladywostok]), " +
                 "4=FlightRoute(route=[Warszawa, Moskwa, Krakow, Sopot])}";
 
@@ -59,7 +57,8 @@ public class FlightBrowserTestSuite {
         Assert.assertEquals(expectedResult, actualResult);
     }
 
-    private void init() {
+    @Before
+    public void init() {
         flightBrowser = new FlightBrowser();
         dummyDB = new DummyDB();
         dummyDB.fillInDatabase(testRoutes());

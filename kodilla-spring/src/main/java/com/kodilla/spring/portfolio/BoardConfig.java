@@ -14,7 +14,6 @@ public class BoardConfig {
     private TaskList inProgressList;
     private TaskList doneList;
 
-
     @Bean(name = "toDoList")
     @Scope("prototype")
     public TaskList getToDoList() {
