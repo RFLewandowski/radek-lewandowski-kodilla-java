@@ -21,7 +21,7 @@ public class FlightBrowser {
                 .collect(Collectors.toMap(HashMap.Entry::getKey, HashMap.Entry::getValue));
     }
 
-    public Map<Integer, FlightRoute> findAllTo(DummyDB db, String to) {// może zwyczajnie nie da się tego zrobić jednym streamem??
+    public Map<Integer, FlightRoute> findAllTo(DummyDB db, String to) {
 
         return db
                 .getDb()
