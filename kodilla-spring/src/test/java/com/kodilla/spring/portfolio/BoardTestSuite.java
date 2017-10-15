@@ -15,11 +15,11 @@ import java.util.List;
 public class BoardTestSuite {
 
     @Autowired
-    TaskList toDoList;
+    private TaskList toDoList;
     @Autowired
-    TaskList inProgressList;
+    private TaskList inProgressList;
     @Autowired
-    TaskList doneList;
+    private TaskList doneList;
     @Autowired
     Board board;
 

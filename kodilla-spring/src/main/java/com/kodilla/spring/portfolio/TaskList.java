@@ -11,7 +11,7 @@ import java.util.List;
 public class TaskList {
     List<String> tasks;
 
-    public TaskList(List<String> tasks) {
+    public TaskList() {
         this.tasks = new ArrayList<>();
     }
 }
