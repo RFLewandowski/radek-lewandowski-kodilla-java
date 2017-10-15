@@ -12,7 +12,6 @@ public class FlightBrowserTestSuite {
     private FlightBrowser flightBrowser;
     private DummyDB dummyDB;
 
-
     @Test
     public void Should_FindFlightsFrom() {
         //Given
@@ -22,7 +21,7 @@ public class FlightBrowserTestSuite {
 
         //When
         String actualResult = flightBrowser
-                .findAllTo(dummyDB, "Amsterdam")
+                .findAllFrom(dummyDB, "Warszawa")
                 .toString();
 
         //Then
@@ -48,7 +47,8 @@ public class FlightBrowserTestSuite {
     public void Should_FindFlightsVia() {
         //Given
         init();
-        String expectedResult = "{3=FlightRoute(route=[Warszawa, Moskwa, Wladywostok]), 4=FlightRoute(route=[Warszawa, Moskwa, Krakow, Sopot])}";
+        String expectedResult = "{3=FlightRoute(route=[Warszawa, Moskwa, Wladywostok]), " +
+                "4=FlightRoute(route=[Warszawa, Moskwa, Krakow, Sopot])}";
 
         //When
         String actualResult = flightBrowser
@@ -74,6 +74,4 @@ public class FlightBrowserTestSuite {
         ArrayList<String> f5 = new ArrayList<>(Arrays.asList("Warszawa", "Berlin", "Frankfurt", "Amsterdam", "Paryz"));
         return new ArrayList[]{f0, f1, f2, f3, f4, f5};
     }
-
-
 }
