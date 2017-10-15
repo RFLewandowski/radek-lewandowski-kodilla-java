@@ -1,7 +1,6 @@
 package com.kodilla.spring.portfolio;
 
 
-import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -10,8 +9,11 @@ import org.springframework.context.annotation.Scope;
 @Configuration
 public class BoardConfig {
 
+    @Autowired
     private TaskList toDoList;
+    @Autowired
     private TaskList inProgressList;
+    @Autowired
     private TaskList doneList;
 
     @Bean(name = "toDoList")

@@ -2,6 +2,7 @@ package com.kodilla.spring.portfolio;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.context.annotation.Bean;
 
 import java.util.ArrayList;
 import java.util.List;
