@@ -1,17 +1,13 @@
 package com.kodilla.spring.calculator;
 
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
+@AllArgsConstructor
 @Component
 public class Calculator {
     private final Display display;
-
-    @Autowired
-    public Calculator(Display display) {
-        this.display = display;
-    }
 
     public double add(double a, double b) {
         double result = a + b;
