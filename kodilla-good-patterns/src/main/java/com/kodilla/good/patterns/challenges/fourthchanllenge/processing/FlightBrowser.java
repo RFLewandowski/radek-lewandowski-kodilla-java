@@ -28,10 +28,10 @@ public class FlightBrowser {
                 .entrySet()
                 .stream()
                 .filter(integerFlightRouteEntry -> integerFlightRouteEntry
-                                .getValue()
-                                .getRoute()
-                                .toString()
-                                .endsWith(to+"]"))
+                        .getValue()
+                        .getRoute()
+                        .toString()
+                        .endsWith(to + "]"))
                 .collect(Collectors.toMap(HashMap.Entry::getKey, HashMap.Entry::getValue));
     }
 
@@ -43,7 +43,8 @@ public class FlightBrowser {
                 .filter(integerFlightRouteEntry -> integerFlightRouteEntry
                         .getValue()
                         .getRoute()
-                        .contains(via))
+                        .toString()
+                        .contains(" " + via + ","))
                 .collect(Collectors.toMap(HashMap.Entry::getKey, HashMap.Entry::getValue));
     }
 }
