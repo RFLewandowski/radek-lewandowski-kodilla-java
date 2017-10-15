@@ -51,5 +51,4 @@ public class BoardTestSuite {
 
         System.out.println(board.toString());
     }
-
 }

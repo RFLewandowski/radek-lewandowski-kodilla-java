@@ -11,12 +11,14 @@ import org.springframework.context.annotation.Scope;
 @Setter
 public class BoardConfig {
 
-    @Autowired
     private TaskList toDoList;
-    @Autowired
     private TaskList inProgressList;
-    @Autowired
     private TaskList doneList;
+
+    @Autowired
+    public BoardConfig(TaskList toDoList,TaskList inProgressList,TaskList doneList) {
+        this.toDoList = toDoList;
+    }
 
     @Bean(name = "toDoList")
     @Scope("prototype")
