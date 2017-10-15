@@ -27,6 +27,7 @@ public class BoardTestSuite {
     @Test
     public void Should_InitializeBoard() {
         //Given
+
         List<String> toDoTasks = Arrays.asList("testToDo");
         List<String> inProgressTasks = Arrays.asList("testInProgress");
         List<String> doneTasks = Arrays.asList("testDoneTask");
@@ -35,15 +36,19 @@ public class BoardTestSuite {
         inProgressList.setTasks(inProgressTasks);
         doneList.setTasks(doneTasks);
 
+        //toDoList.getTasks().add("testToDo");
+        //inProgressList.getTasks().add("testInProgress");
+        //doneList.getTasks().add("testDoneTask");
+
         //When
         board.setToDoList(toDoList);
         board.setToDoList(inProgressList);
         board.setToDoList(doneList);
 
         //Then
-        System.out.println(toDoTasks);
-        System.out.println(inProgressTasks);
-        System.out.println(doneTasks);
+        //System.out.println(toDoTasks);
+        //System.out.println(inProgressTasks);
+        //System.out.println(doneTasks);
 
         System.out.println(toDoList.toString());
         System.out.println(inProgressList.toString());

@@ -16,7 +16,7 @@ public class BoardConfig {
     private TaskList doneList;
 
     @Autowired
-    public BoardConfig(TaskList toDoList,TaskList inProgressList,TaskList doneList) {
+    public BoardConfig(TaskList toDoList, TaskList inProgressList, TaskList doneList) {
         this.toDoList = toDoList;
     }
 
