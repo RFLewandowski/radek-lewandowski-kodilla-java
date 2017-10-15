@@ -1,11 +1,13 @@
 package com.kodilla.spring.portfolio;
 
-import lombok.Value;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Value
+@Getter
+@Setter
 public class TaskList {
     List<String> tasks;
 

@@ -7,31 +7,33 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Configuration
 @Setter
 public class BoardConfig {
+
     @Autowired
-    private List<TaskList> taskList;
+    private TaskList toDoList;
+    @Autowired
+    private TaskList inProgressList;
+    @Autowired
+    private TaskList doneList;
 
     @Bean(name = "toDoList")
     @Scope("prototype")
     public TaskList getToDoList() {
-        return taskList.get(0);
+        return toDoList;
     }
 
     @Bean(name = "inProgressList")
     @Scope("prototype")
     public TaskList getInProgressList() {
-        return taskList.get(1);
+        return inProgressList;
     }
 
     @Bean(name = "doneList")
     @Scope("prototype")
     public TaskList getDoneList() {
-        return taskList.get(2);
+        return doneList;
     }
 
     @Bean

@@ -1,8 +1,12 @@
 package com.kodilla.spring.portfolio;
 
-import lombok.Value;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 
-@Value
+@Getter
+@Setter
+@AllArgsConstructor
 public class Board {
     private TaskList toDoList;
     private TaskList inProgressList;
