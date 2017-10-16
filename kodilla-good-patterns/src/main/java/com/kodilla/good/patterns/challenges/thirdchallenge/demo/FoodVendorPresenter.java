@@ -10,7 +10,7 @@ public class FoodVendorPresenter {
 
     public void whatCanProvide(FoodVendor foodVendor) {
         String vendorID = foodVendor.getVendorId();
-        System.out.println(vendorID + "może dostarczyć:");
+        System.out.println(vendorID + "moze dostarczyc:");
 
         Map vendorsProductsMap = foodVendor.getProducts();
         String vendorsProducts = vendorsProductsMap.toString();
@@ -20,7 +20,7 @@ public class FoodVendorPresenter {
 
     public void testOrder(FoodVendor foodVendor) {
         String vendorID = foodVendor.getVendorId();
-        System.out.println(vendorID + ">>zamówienie pomidorków:");
+        System.out.println(vendorID + ">>zamowienie pomidorkow:");
         Map<String, Integer> pomidorki = new HashMap<>();
         pomidorki.put("pomidorki", 2);
 

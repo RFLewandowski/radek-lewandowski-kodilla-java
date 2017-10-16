@@ -1,6 +1,7 @@
 package com.kodilla.good.patterns.challenges.thirdchallenge.foodvendors;
 
 import com.kodilla.good.patterns.challenges.thirdchallenge.dto.WaybillDTO;
+import lombok.EqualsAndHashCode;
 import lombok.Value;
 
 import java.time.DayOfWeek;
@@ -9,6 +10,7 @@ import java.time.temporal.TemporalAdjusters;
 import java.util.HashMap;
 import java.util.Map;
 
+@EqualsAndHashCode(callSuper = false)
 @Value
 public class HealthyShop extends AbstractFoodVendor {
 

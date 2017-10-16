@@ -15,7 +15,7 @@ public class GlutenFreeShopTestSuite {
     public void Should_ProcessPresentProducts() {
         //Given
         FoodVendor foodVendor = new GlutenFreeShop();
-        String expectedProducts = "{pierożki bezglutenowe=3}";
+        String expectedProducts = "{pierozki bezglutenowe=3}";
         //When
         Map vendorsProductsMap = foodVendor.getProducts();
         String vendorsProducts = vendorsProductsMap.toString();
@@ -28,7 +28,7 @@ public class GlutenFreeShopTestSuite {
         //Given
         FoodVendor foodVendor = new GlutenFreeShop();
         Map<String, Integer> pierozki = new HashMap<>();
-        pierozki.put("pierożki bezglutenowe", 2);
+        pierozki.put("pierozki bezglutenowe", 2);
 
         LocalDate ld = LocalDate.now().plusDays(2);
         WaybillDTO expectedWaybill = new WaybillDTO("GlutenFreeShop", true, ld, pierozki);

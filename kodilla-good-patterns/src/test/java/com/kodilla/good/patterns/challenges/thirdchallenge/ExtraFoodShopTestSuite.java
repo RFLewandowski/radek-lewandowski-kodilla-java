@@ -16,7 +16,7 @@ public class ExtraFoodShopTestSuite {
     public void Should_ProcessPresentProducts() {
         //Given
         FoodVendor foodVendor = new ExtraFoodShop();
-        String expectedProducts = "{ogórki=2, pomidorki=3}";
+        String expectedProducts = "{ogorki=2, pomidorki=3}";
         //When
         Map vendorsProductsMap = foodVendor.getProducts();
         String vendorsProducts = vendorsProductsMap.toString();
