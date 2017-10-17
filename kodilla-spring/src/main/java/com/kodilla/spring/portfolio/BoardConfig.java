@@ -16,12 +16,6 @@ public class BoardConfig {
     @Autowired
     private TaskList doneList;
 
-//    @Bean(name = "toDoList")
-//    @Scope("prototype")
-//    public TaskList getToDoList("tutaj argument do zrobienia instancji") {
-//        return new toDoList ("tutaj argument do zrobienia instancji");
-//    }
-
     @Bean(name = "toDoList")
     @Scope("prototype")
     public TaskList getToDoList() {
@@ -40,8 +34,8 @@ public class BoardConfig {
         return doneList;
     }
 
-    @Bean
+    @Bean(name="board")
     public Board getBoard() {
-        return new Board(getToDoList(), getInProgressList(), getDoneList());
+        return new Board(getToDoList(), getInProgressList(), getToDoList());
     }
 }
