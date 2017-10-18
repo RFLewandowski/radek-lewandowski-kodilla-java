@@ -4,6 +4,7 @@ package com.kodilla.spring.portfolio;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -17,10 +18,13 @@ import java.util.List;
 public class BoardTestSuite {
 
     @Autowired
+    @Qualifier("toDoList")
     private TaskList toDoList;
     @Autowired
+    @Qualifier("inProgressList")
     private TaskList inProgressList;
     @Autowired
+    @Qualifier("doneList")
     private TaskList doneList;
     @Autowired
     Board board;
@@ -29,17 +33,17 @@ public class BoardTestSuite {
     public void Should_InitializeBoard() {
         //Given
 
-        List<String> toDoTasks = Arrays.asList("testToDo");
-        List<String> inProgressTasks = Arrays.asList("testInProgress");
-        List<String> doneTasks = Arrays.asList("testDoneTask");
+//        List<String> toDoTasks = Arrays.asList("testToDo");
+//        List<String> inProgressTasks = Arrays.asList("testInProgress");
+//        List<String> doneTasks = Arrays.asList("testDoneTask");
 
-        toDoList.setTasks(toDoTasks);
-        inProgressList.setTasks(inProgressTasks);
-        doneList.setTasks(doneTasks);
+//        toDoList.setTasks(toDoTasks);
+//        inProgressList.setTasks(inProgressTasks);
+//        doneList.setTasks(doneTasks);
 
-//        toDoList.getTasks().add("testToDo2");
-//        inProgressList.getTasks().add("testInProgress");
-//        doneList.getTasks().add("testDoneTask");
+        toDoList.getTasks().add("testToDo2");
+        inProgressList.getTasks().add("testInProgress");
+        doneList.getTasks().add("testDoneTask");
 
         //When
         //board.setToDoList(toDoList);
