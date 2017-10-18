@@ -37,9 +37,9 @@ public class BoardTestSuite {
         inProgressList.setTasks(inProgressTasks);
         doneList.setTasks(doneTasks);
 
-        //toDoList.getTasks().add("testToDo");
-        //inProgressList.getTasks().add("testInProgress");
-        //doneList.getTasks().add("testDoneTask");
+//        toDoList.getTasks().add("testToDo2");
+//        inProgressList.getTasks().add("testInProgress");
+//        doneList.getTasks().add("testDoneTask");
 
         //When
         //board.setToDoList(toDoList);
@@ -47,9 +47,9 @@ public class BoardTestSuite {
         //board.setDoneList(doneList);
 
         //Then
-        System.out.println(toDoTasks);
-        System.out.println(inProgressTasks);
-        System.out.println(doneTasks);
+//        System.out.println(toDoTasks);
+//        System.out.println(inProgressTasks);
+//        System.out.println(doneTasks);
 
         System.out.println(toDoList.toString());
         System.out.println(inProgressList.toString());
