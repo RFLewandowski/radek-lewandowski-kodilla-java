@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 @Setter
 @ToString
 @AllArgsConstructor
+@Component
 public class Board {
     private TaskList toDoList;
     private TaskList inProgressList;

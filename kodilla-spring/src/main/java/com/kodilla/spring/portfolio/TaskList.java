@@ -15,6 +15,7 @@ import java.util.List;
 @Setter
 @Getter
 @ToString
+@Component
 public class TaskList {
     List<String> tasks;
 
