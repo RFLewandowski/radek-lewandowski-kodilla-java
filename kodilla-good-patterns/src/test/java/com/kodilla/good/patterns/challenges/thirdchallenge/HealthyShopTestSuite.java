@@ -30,7 +30,7 @@ public class HealthyShopTestSuite {
         Map<String, Integer> pomidorki = new HashMap<>();
         pomidorki.put("pomidorki", 2);
 
-        LocalDate ld = LocalDate.now().plusDays(4);
+        LocalDate ld = LocalDate.now().plusDays(1);
         WaybillDTO expectedWaybill = new WaybillDTO("HealthyShop", true, ld, pomidorki);
 
         //When
