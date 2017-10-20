@@ -6,7 +6,9 @@ import com.kodilla.good.patterns.challenges.thirdchallenge.foodvendors.HealthySh
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.time.DayOfWeek;
 import java.time.LocalDate;
+import java.time.temporal.TemporalAdjusters;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -30,7 +32,9 @@ public class HealthyShopTestSuite {
         Map<String, Integer> pomidorki = new HashMap<>();
         pomidorki.put("pomidorki", 2);
 
-        LocalDate ld = LocalDate.now().plusDays(1);
+        LocalDate ld = LocalDate
+                .now()
+                .with(TemporalAdjusters.next(DayOfWeek.FRIDAY));
         WaybillDTO expectedWaybill = new WaybillDTO("HealthyShop", true, ld, pomidorki);
 
         //When
