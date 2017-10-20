@@ -29,7 +29,7 @@ public class CustomerTestSuite {
     }
 
     @Test
-    public void testIndividualInvestingStrategy() {
+    public void Should_testIndividualInvestingStrategy() {
         //Given
         Customer steven = new IndividualCustomer("Steven Links");
 
