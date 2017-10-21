@@ -5,7 +5,7 @@ import org.junit.Test;
 
 public class ShapeFactoryTestSuite {
     @Test
-    public void testFactoryCircle() {
+    public void Should_makeCircle() {
         //Given
         ShapeFactory factory = new ShapeFactory();
         //When
@@ -16,7 +16,7 @@ public class ShapeFactoryTestSuite {
     }
 
     @Test
-    public void testFactorySquare() {
+    public void Should_makeSquare() {
         //Given
         ShapeFactory factory = new ShapeFactory();
         //When
@@ -27,7 +27,7 @@ public class ShapeFactoryTestSuite {
     }
 
     @Test
-    public void testFactoryRectangle() {
+    public void Should_makeRectangle() {
         //Given
         ShapeFactory factory = new ShapeFactory();
         //When
