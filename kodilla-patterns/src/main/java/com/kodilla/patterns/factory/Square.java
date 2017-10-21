@@ -1,8 +1,8 @@
 package com.kodilla.patterns.factory;
 
 public final class Square implements Shape {
-    final String name;
-    final double width;
+    private final String name;
+    private final double width;
 
     public Square(final String name, final double width) {
         this.name = name;

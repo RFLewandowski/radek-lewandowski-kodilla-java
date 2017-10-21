@@ -1,9 +1,9 @@
 package com.kodilla.patterns.factory;
 
 public final class Rectangle implements Shape {
-    final String name;
-    final double width;
-    final double length;
+    private final String name;
+    private final double width;
+    private final double length;
 
     public Rectangle(final String name, final double width, final double length) {
         this.name = name;
