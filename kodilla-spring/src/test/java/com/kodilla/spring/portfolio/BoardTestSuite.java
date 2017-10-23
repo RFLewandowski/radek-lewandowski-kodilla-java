@@ -17,17 +17,17 @@ import java.util.List;
 @SpringBootTest
 public class BoardTestSuite {
 
+//    @Autowired
+//    @Qualifier("toDoList")
+//    private TaskList toDoList;
+//    @Autowired
+//    @Qualifier("inProgressList")
+//    private TaskList inProgressList;
+//    @Autowired
+//    @Qualifier("doneList")
+//    private TaskList doneList;
     @Autowired
-    @Qualifier("toDoList")
-    private TaskList toDoList;
-    @Autowired
-    @Qualifier("inProgressList")
-    private TaskList inProgressList;
-    @Autowired
-    @Qualifier("doneList")
-    private TaskList doneList;
-    @Autowired
-    Board board;
+    private Board board;
 
     @Test
     public void Should_InitializeBoard() {
@@ -41,9 +41,9 @@ public class BoardTestSuite {
 //        inProgressList.setTasks(inProgressTasks);
 //        doneList.setTasks(doneTasks);
 
-        toDoList.getTasks().add("testToDo2");
-        inProgressList.getTasks().add("testInProgress");
-        doneList.getTasks().add("testDoneTask");
+//        toDoList.getTasks().add("testToDo2");
+//        inProgressList.getTasks().add("testInProgress");
+//        doneList.getTasks().add("testDoneTask");
 
         //When
         //board.setToDoList(toDoList);
@@ -55,9 +55,9 @@ public class BoardTestSuite {
 //        System.out.println(inProgressTasks);
 //        System.out.println(doneTasks);
 
-        System.out.println(toDoList.toString());
-        System.out.println(inProgressList.toString());
-        System.out.println(doneList.toString());
+//        System.out.println(toDoList.toString());
+//        System.out.println(inProgressList.toString());
+//        System.out.println(doneList.toString());
 
         System.out.println(board.toString());
     }

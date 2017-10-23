@@ -8,7 +8,7 @@ public class ShoppingTask extends AbstractTask{
     private final double quantity;
 
     ShoppingTask(String taskName, String whatToBuy, double quantity) {
-        this.taskName = taskName;
+        super(taskName);
         this.whatToBuy = whatToBuy;
         this.quantity = quantity;
         this.TaskExecuted = false;
