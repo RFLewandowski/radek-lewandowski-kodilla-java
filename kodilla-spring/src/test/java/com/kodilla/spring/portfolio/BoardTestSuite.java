@@ -17,23 +17,23 @@ import java.util.List;
 public class BoardTestSuite {
 
     @Autowired
-    @Qualifier("toDoList")
-    private TaskList toDoList;
-    @Autowired
-    @Qualifier("inProgressList")
-    private TaskList inProgressList;
-    @Autowired
-    @Qualifier("doneList")
-    private TaskList doneList;
-    @Autowired
     Board board;
 
     @Test
     public void Should_InitializeBoard() {
         //Given
-        toDoList.getTasks().add("testToDo");
-        inProgressList.getTasks().add("testInProgress");
-        doneList.getTasks().add("testDoneTask");
+        board.
+                getToDoList()
+                .getTasks()
+                .add("testToDo");
+        board.
+                getInProgressList()
+                .getTasks()
+                .add("testInProgress");
+        board
+                .getDoneList()
+                .getTasks()
+                .add("testDoneTask");
 
         String expectedBoardString = "Board(toDoList=TaskList(tasks=[testToDo]), inProgressList=TaskList(tasks=[testInProgress]), doneList=TaskList(tasks=[testDoneTask]))";
         List<String> expectedToDo = Arrays.asList("testToDo");
@@ -41,9 +41,15 @@ public class BoardTestSuite {
         List<String> expectedDone = Arrays.asList("testDoneTask");
 
         //When
-        List<String> actualToDo = board.getToDoList().getTasks();
-        List<String> actualInProgress = board.getInProgressList().getTasks();
-        List<String> actualDone = board.getDoneList().getTasks();
+        List<String> actualToDo = board
+                .getToDoList()
+                .getTasks();
+        List<String> actualInProgress = board
+                .getInProgressList()
+                .getTasks();
+        List<String> actualDone = board
+                .getDoneList()
+                .getTasks();
 
         //Then
         Assert.assertEquals(expectedToDo, actualToDo);
