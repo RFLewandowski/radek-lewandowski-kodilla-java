@@ -9,7 +9,6 @@ import java.sql.Statement;
 
 public class DbManagerTestSuite {
 
-    private ResultSet rs = null;
     private Statement statement = null;
 
     @Test
@@ -24,8 +23,9 @@ public class DbManagerTestSuite {
     @Test
     public void testSelectUsers() throws SQLException {
         //Given
-        //When
         String sqlQuery = "SELECT * FROM USERS";
+
+        //When
         ResultSet rs = queryDB(sqlQuery);
 
         //Then
@@ -45,12 +45,12 @@ public class DbManagerTestSuite {
     @Test
     public void Should_ShowUsers_When_HaveMoreThanTwoPosts() throws SQLException {
         //Given
-        //When
         String sqlQuery = "SELECT U.FIRSTNAME, U.LASTNAME, COUNT(*) AS POSTS_NUMBER\n" +
                 "FROM POSTS P, USERS U\n" +
                 "WHERE P.USER_ID = U.ID\n" +
                 "GROUP BY P.USER_ID\n" +
                 "HAVING COUNT(*) >= 2;";
+        //When
         ResultSet rs = queryDB(sqlQuery);
 
         //Then
@@ -73,7 +73,7 @@ public class DbManagerTestSuite {
         statement = dbManager
                 .getConnection()
                 .createStatement();
-        rs = statement.executeQuery(sqlQuery);
+        ResultSet rs = statement.executeQuery(sqlQuery);
         return rs;
     }
 }
