@@ -1,12 +1,12 @@
-package com.kodilla.patterns.com.kodilla.patterns.factory.tasks;
+package com.kodilla.patterns.factory.tasks;
 
 import lombok.Getter;
 
 @Getter
-public class DrivingTask implements Task {
+public class DrivingTask extends AbstractTask {
 
-    private final String taskName;
-    private boolean TaskExecuted;
+    //private final String taskName;
+    //private boolean TaskExecuted;
     private final String where;
     private final String using;
 
@@ -15,11 +15,5 @@ public class DrivingTask implements Task {
         this.where = where;
         this.using = using;
         this.TaskExecuted = false;
-    }
-
-    @Override
-    public Task executeTask() {
-        this.TaskExecuted = true;
-        return this;
     }
 }

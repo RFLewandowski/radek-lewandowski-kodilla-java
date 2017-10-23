@@ -1,4 +1,4 @@
-package com.kodilla.patterns.com.kodilla.patterns.factory.tasks;
+package com.kodilla.patterns.factory.tasks;
 
 public interface Task {
     Task executeTask();

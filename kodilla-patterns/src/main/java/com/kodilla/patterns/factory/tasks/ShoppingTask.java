@@ -1,12 +1,12 @@
-package com.kodilla.patterns.com.kodilla.patterns.factory.tasks;
+package com.kodilla.patterns.factory.tasks;
 
 import lombok.Getter;
 
 @Getter
-public class ShoppingTask implements Task {
+public class ShoppingTask extends AbstractTask{
 
-    private final String taskName;
-    private boolean TaskExecuted;
+    //private final String taskName;
+    //private boolean TaskExecuted;
     private final String whatToBuy;
     private final double quantity;
 
@@ -17,9 +17,4 @@ public class ShoppingTask implements Task {
         this.TaskExecuted = false;
     }
 
-    @Override
-    public Task executeTask() {
-        this.TaskExecuted = true;
-        return this;
-    }
 }

@@ -1,12 +1,12 @@
-package com.kodilla.patterns.com.kodilla.patterns.factory.tasks;
+package com.kodilla.patterns.factory.tasks;
 
 import lombok.Getter;
 
 @Getter
-public class PaintingTask implements Task {
+public class PaintingTask extends AbstractTask {
 
-    private final String taskName;
-    private boolean TaskExecuted;
+   // private final String taskName;
+   // private boolean TaskExecuted;
     private final String color;
     private final String whatToPaint;
 
@@ -15,11 +15,5 @@ public class PaintingTask implements Task {
         this.color = color;
         this.whatToPaint = whatToPaint;
         this.TaskExecuted = false;
-    }
-
-    @Override
-    public Task executeTask() {
-        this.TaskExecuted = true;
-        return this;
     }
 }
