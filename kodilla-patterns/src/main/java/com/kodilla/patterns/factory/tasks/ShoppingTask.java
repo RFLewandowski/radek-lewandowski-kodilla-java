@@ -4,9 +4,6 @@ import lombok.Getter;
 
 @Getter
 public class ShoppingTask extends AbstractTask{
-
-    //private final String taskName;
-    //private boolean TaskExecuted;
     private final String whatToBuy;
     private final double quantity;
 

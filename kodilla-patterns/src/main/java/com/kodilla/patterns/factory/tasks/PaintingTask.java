@@ -4,9 +4,6 @@ import lombok.Getter;
 
 @Getter
 public class PaintingTask extends AbstractTask {
-
-   // private final String taskName;
-   // private boolean TaskExecuted;
     private final String color;
     private final String whatToPaint;
 

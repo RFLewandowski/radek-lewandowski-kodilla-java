@@ -4,9 +4,6 @@ import lombok.Getter;
 
 @Getter
 public class DrivingTask extends AbstractTask {
-
-    //private final String taskName;
-    //private boolean TaskExecuted;
     private final String where;
     private final String using;
 
