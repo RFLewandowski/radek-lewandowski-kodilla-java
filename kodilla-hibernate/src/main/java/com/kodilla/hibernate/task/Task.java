@@ -1,63 +1,37 @@
 package com.kodilla.hibernate.task;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
 
+
+@Data
+@NoArgsConstructor
 @Entity
 @Table(name = "TASKS")
 public final class Task {
-    private int id;
-    private String description;
-    private Date created;
-    private int duration;
-
-    public Task() {
-    }
-
-    public Task(String description, int duration) {
-        this.description = description;
-        this.created = new Date();
-        this.duration = duration;
-    }
-
     @Id
     @GeneratedValue
     @NotNull
     @Column(name = "ID", unique = true)
-    public int getId() {
-        return id;
-    }
+    private int id;
 
     @Column(name = "DESCRIPTION")
-    public String getDescription() {
-        return description;
-    }
+    private String description;
 
     @NotNull
-    @Column(name="CREATED")
-    public Date getCreated() {
-        return created;
-    }
+    @Column(name = "CREATED")
+    private Date created;
 
-    @Column(name="DURATION")
-    public int getDuration() {
-        return duration;
-    }
+    @Column(name = "DURATION")
+    private int duration;
 
-    private void setId(int id) {
-        this.id = id;
-    }
-
-    private void setDescription(String description) {
+    public Task(String description, int duration) {
         this.description = description;
-    }
-
-    private void setCreated(Date created) {
-        this.created = created;
-    }
-
-    private void setDuration(int duration) {
+        this.created = new Date();
         this.duration = duration;
     }
 }

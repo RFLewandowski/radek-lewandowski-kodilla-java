@@ -18,7 +18,7 @@ public class TaskDaoTestSuite {
     private static final String DESCRIPTION = "Test: Learn Hibernate";
 
     @Test
-    public void testTaskDaoSave() {
+    public void Should_SaveTask() {
         //Given
         Task task = new Task(DESCRIPTION, 7);
 
@@ -35,7 +35,7 @@ public class TaskDaoTestSuite {
     }
 
     @Test
-    public void testTaskDaoFindByDuration() {
+    public void Should_FindTaskByDuration() {
         //Given
         Task task = new Task(DESCRIPTION, 7);
         taskDao.save(task);
