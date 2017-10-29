@@ -29,6 +29,10 @@ public final class Task {
     @Column(name = "DURATION")
     private int duration;
 
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "TASKS_FINANCIAL_ID")
+    private TaskFinancialDetails taskFinancialDetails;
+
     public Task(String description, int duration) {
         this.description = description;
         this.created = new Date();
