@@ -1,5 +1,6 @@
 package com.kodilla.hibernate.task;
 
+import com.kodilla.hibernate.tasklist.TaskList;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -32,6 +33,10 @@ public final class Task {
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "TASKS_FINANCIAL_ID")
     private TaskFinancialDetails taskFinancialDetails;
+
+    @ManyToOne
+    @JoinColumn(name = "TASKLIST_ID")
+    private TaskList taskList;
 
     public Task(String description, int duration) {
         this.description = description;
