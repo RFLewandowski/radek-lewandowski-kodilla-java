@@ -54,7 +54,5 @@ public class InvoiceDaoTestSuite {
         //CleanUp
 
         //to be done
-
-
     }
 }

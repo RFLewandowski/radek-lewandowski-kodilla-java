@@ -18,10 +18,10 @@ public class Invoice {
     @GeneratedValue
     @NotNull
     @Column(name = "ID", unique = true)
-    int id;
+    private int id;
 
     @Column(name = "NUMBER")
-    String number;
+    private String number;
 
     @OneToMany(
             targetEntity = Item.class,

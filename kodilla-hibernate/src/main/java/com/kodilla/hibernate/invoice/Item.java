@@ -17,24 +17,24 @@ public class Item {
     @GeneratedValue
     @NotNull
     @Column(name = "ID", unique = true)
-    int id;
+    private int id;
 
     @ManyToOne
     @JoinColumn(name = "PRODUCT_ID")
-    Product product;
+    private Product product;
 
     @Column(name = "PRICE")
-    BigDecimal price;
+    private BigDecimal price;
 
     @Column(name = "QUANTITY")
-    int quantity;
+    private int quantity;
 
     @Column(name = "VALUE")
-    BigDecimal value;
+    private BigDecimal value;
 
     @ManyToOne
     @JoinColumn(name = "INVOICE_ID")
-    Invoice invoice;
+    private Invoice invoice;
 
     public Item(Product product, BigDecimal price, int quantity, BigDecimal value) {
         this.product = product;

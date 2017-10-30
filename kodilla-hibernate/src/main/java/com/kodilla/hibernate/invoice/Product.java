@@ -19,10 +19,10 @@ public class Product {
     @GeneratedValue
     @NotNull
     @Column(name = "ID", unique = true)
-    int id;
+    private int id;
 
     @Column(name = "NAME")
-    String name;
+    private String name;
 
     @OneToMany(
             targetEntity = Item.class,
