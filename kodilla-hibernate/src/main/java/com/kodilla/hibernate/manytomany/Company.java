@@ -10,6 +10,14 @@ import java.util.List;
 
 @Data
 @NoArgsConstructor
+
+@NamedNativeQuery(
+        name = "Company.retrieveCompaniesWithFirstLettersEqualTo",
+        query = "SELECT * FROM COMPANIES" +
+                " WHERE LEFT(COMPANY_NAME , 3)=:FIRSTLETTERS",
+        resultClass = Company.class
+)
+
 @Entity
 @Table(name = "COMPANIES")
 public class Company {
