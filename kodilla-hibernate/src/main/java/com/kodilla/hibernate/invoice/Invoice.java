@@ -15,10 +15,10 @@ import java.util.List;
 public class Invoice {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.TABLE)
     @NotNull
     @Column(name = "ID", unique = true)
-    private int id;
+    private Integer id;
 
     @Column(name = "NUMBER")
     private String number;
@@ -26,7 +26,7 @@ public class Invoice {
     @OneToMany(
             targetEntity = Item.class,
             mappedBy = "invoice",
-            cascade = CascadeType.ALL,
+            cascade = CascadeType.PERSIST,
             fetch = FetchType.LAZY
     )
     List<Item> items = new ArrayList<>();

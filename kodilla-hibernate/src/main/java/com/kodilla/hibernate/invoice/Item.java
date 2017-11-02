@@ -14,12 +14,11 @@ import java.math.BigDecimal;
 public class Item {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.TABLE)
     @NotNull
     @Column(name = "ID", unique = true)
-    private int id;
+    private Integer id;
 
-    @ManyToOne
     @JoinColumn(name = "PRODUCT_ID")
     private Product product;
 
@@ -36,8 +35,7 @@ public class Item {
     @JoinColumn(name = "INVOICE_ID")
     private Invoice invoice;
 
-    public Item(Product product, BigDecimal price, int quantity, BigDecimal value) {
-        this.product = product;
+    public Item(BigDecimal price, int quantity, BigDecimal value) {
         this.price = price;
         this.quantity = quantity;
         this.value = value;

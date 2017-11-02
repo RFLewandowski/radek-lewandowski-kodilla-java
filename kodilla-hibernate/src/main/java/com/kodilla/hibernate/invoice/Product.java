@@ -16,10 +16,10 @@ import java.util.List;
 public class Product {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.TABLE)
     @NotNull
     @Column(name = "ID", unique = true)
-    private int id;
+    private Integer id;
 
     @Column(name = "NAME")
     private String name;

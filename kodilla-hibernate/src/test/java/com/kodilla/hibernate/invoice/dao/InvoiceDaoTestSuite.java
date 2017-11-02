@@ -18,6 +18,12 @@ public class InvoiceDaoTestSuite {
     @Autowired
     InvoiceDao invoiceDao;
 
+    @Autowired
+    ItemDao itemDao;
+
+    @Autowired
+    ProductDao productDao;
+
     @Test
     public void ShouldSaveInvoiceDao() {
 
@@ -28,10 +34,26 @@ public class InvoiceDaoTestSuite {
         BigDecimal dummyPrice = new BigDecimal(2.0);
         BigDecimal dummyValue = new BigDecimal(1.0);
 
-        Item item1 = new Item(pomidorek, dummyPrice, 1, dummyValue);
-        Item item2 = new Item(ogorek, dummyPrice, 2, dummyValue);
-        Item item3 = new Item(pomidorek, dummyPrice, 3, dummyValue);
-        Item item4 = new Item(ogorek, dummyPrice, 19, dummyValue);
+
+//        productDao.save(pomidorek);
+//        productDao.save(ogorek);
+
+        Item item1 = new Item(dummyPrice, 1, dummyValue);
+        Item item2 = new Item( dummyPrice, 2, dummyValue);
+        Item item3 = new Item(dummyPrice, 3, dummyValue);
+        Item item4 = new Item( dummyPrice, 19, dummyValue);
+
+        item1.setProduct(ogorek);
+        item2.setProduct(pomidorek);
+        item3.setProduct(ogorek);
+        item4.setProduct(pomidorek);
+
+//        itemDao.save(item1);
+//        itemDao.save(item2);
+//        itemDao.save(item3);
+//        itemDao.save(item4);
+
+
 
         Invoice invoice = new Invoice("DummyInvoice");
 
