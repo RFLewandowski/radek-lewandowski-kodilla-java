@@ -1,7 +1,6 @@
 package com.kodilla.hibernate.tasklist;
 
 import com.kodilla.hibernate.task.Task;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
