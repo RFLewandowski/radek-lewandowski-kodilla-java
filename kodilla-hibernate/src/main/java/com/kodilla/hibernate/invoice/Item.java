@@ -2,10 +2,12 @@ package com.kodilla.hibernate.invoice;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
+
 
 @Data
 @NoArgsConstructor

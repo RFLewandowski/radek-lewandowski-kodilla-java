@@ -3,6 +3,7 @@ package com.kodilla.hibernate.invoice.dao;
 import com.kodilla.hibernate.invoice.Invoice;
 import com.kodilla.hibernate.invoice.Item;
 import com.kodilla.hibernate.invoice.Product;
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -38,9 +39,9 @@ public class InvoiceDaoTestSuite {
 //        productDao.save(ogorek);
 
         Item item1 = new Item(dummyPrice, 1, dummyValue);
-        Item item2 = new Item( dummyPrice, 2, dummyValue);
+        Item item2 = new Item(dummyPrice, 2, dummyValue);
         Item item3 = new Item(dummyPrice, 3, dummyValue);
-        Item item4 = new Item( dummyPrice, 19, dummyValue);
+        Item item4 = new Item(dummyPrice, 19, dummyValue);
 
         item1.setProduct(ogorek);
         item2.setProduct(pomidorek);
@@ -67,11 +68,21 @@ public class InvoiceDaoTestSuite {
         invoiceDao.save(invoice);
         int invoiceID = invoice.getId();
 
+        Object actualInvoiceIdReverenceInItemTable = itemDao
+                .findAll()
+                .get(0)
+                .getInvoice();
+
+
         //Then
         Assert.assertNotEquals(0, invoiceID);
+        Assert.assertNotEquals(null, actualInvoiceIdReverenceInItemTable);
 
-        //CleanUp
+    }
 
-        //to be done
+
+    @After
+    public void tearDown() throws Exception {
+        invoiceDao.deleteAll();
     }
 }
