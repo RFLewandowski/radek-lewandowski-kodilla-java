@@ -72,12 +72,10 @@ public class InvoiceDaoTestSuite {
                 .findAll()
                 .get(0)
                 .getInvoice();
-
-
+        
         //Then
         Assert.assertNotEquals(0, invoiceID);
         Assert.assertNotEquals(null, actualInvoiceIdReverenceInItemTable);
-
     }
 
 
