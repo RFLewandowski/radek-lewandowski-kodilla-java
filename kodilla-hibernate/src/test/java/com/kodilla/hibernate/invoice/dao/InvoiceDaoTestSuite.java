@@ -34,7 +34,6 @@ public class InvoiceDaoTestSuite {
         BigDecimal dummyPrice = new BigDecimal(2.0);
         BigDecimal dummyValue = new BigDecimal(1.0);
 
-
 //        productDao.save(pomidorek);
 //        productDao.save(ogorek);
 
@@ -52,8 +51,6 @@ public class InvoiceDaoTestSuite {
 //        itemDao.save(item2);
 //        itemDao.save(item3);
 //        itemDao.save(item4);
-
-
 
         Invoice invoice = new Invoice("DummyInvoice");
 
