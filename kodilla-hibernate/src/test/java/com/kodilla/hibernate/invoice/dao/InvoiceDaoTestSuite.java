@@ -55,6 +55,11 @@ public class InvoiceDaoTestSuite {
 
         Invoice invoice = new Invoice("DummyInvoice");
 
+        item1.setInvoice(invoice);
+        item2.setInvoice(invoice);
+        item3.setInvoice(invoice);
+        item4.setInvoice(invoice);
+
         invoice.getItems()
                 .add(item1);
         invoice.getItems()
@@ -79,8 +84,8 @@ public class InvoiceDaoTestSuite {
     }
 
 
-    @After
-    public void tearDown() throws Exception {
-        invoiceDao.deleteAll();
-    }
+//    @After
+//    public void tearDown() throws Exception {
+//        invoiceDao.deleteAll();
+//    }
 }
