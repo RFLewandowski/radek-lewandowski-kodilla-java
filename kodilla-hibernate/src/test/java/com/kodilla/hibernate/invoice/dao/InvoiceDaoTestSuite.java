@@ -70,8 +70,17 @@ public class InvoiceDaoTestSuite {
                 .add(item4);
 
         //When
-        invoiceDao.save(invoice);
-        int invoiceID = invoice.getId();
+       invoiceDao.save(invoice);
+//        int invoiceID = invoice.getId();
+
+
+//        itemDao.save(item1);
+//        itemDao.save(item2);
+//        itemDao.save(item3);
+//        itemDao.save(item4);
+
+
+
 
         Object actualInvoiceIdReverenceInItemTable = itemDao
                 .findAll()
@@ -79,7 +88,7 @@ public class InvoiceDaoTestSuite {
                 .getInvoice();
         
         //Then
-        Assert.assertNotEquals(0, invoiceID);
+//        Assert.assertNotEquals(0, invoiceID);
         Assert.assertNotEquals(null, actualInvoiceIdReverenceInItemTable);
     }
 
