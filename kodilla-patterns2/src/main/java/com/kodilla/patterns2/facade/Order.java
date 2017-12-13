@@ -2,6 +2,7 @@ package com.kodilla.patterns2.facade;
 
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.math.BigDecimal;
