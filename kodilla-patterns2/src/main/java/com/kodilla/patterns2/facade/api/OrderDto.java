@@ -9,4 +9,8 @@ public class OrderDto {
     public void addItem(final ItemDto item) {
         items.add(item);
     }
+
+    public List<ItemDto> getItems() {
+        return items;
+    }
 }
