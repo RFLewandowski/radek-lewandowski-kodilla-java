@@ -17,6 +17,11 @@ import java.util.List;
                 " WHERE LEFT(COMPANY_NAME , 3)=:FIRSTLETTERS",
         resultClass = Company.class
 )
+@NamedQuery(
+        name = "Company.findCompanyByPartOfName",
+        query = "FROM Company WHERE name LIKE :PARTOFNAME"
+)
+
 
 @Entity
 @Table(name = "COMPANIES")

@@ -11,10 +11,19 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 
-@NamedQuery(
-        name = "Employee.retrieveEmployeesWithLastnameEqual",
-        query = "FROM Employee WHERE lastname = :LASTNAME"
-)
+@NamedQueries({
+        @NamedQuery(
+                name = "Employee.retrieveEmployeesWithLastnameEqual",
+                query = "FROM Employee WHERE lastname = :LASTNAME"
+        ),
+        @NamedQuery(
+                name = "Employee.findEmployeeByPartOfName",
+                query = "FROM Employee WHERE lastname LIKE :PARTOFNAME"
+        )
+})
+
+
+
 
 @Entity
 @Table(name = "EMPLOYEES")
