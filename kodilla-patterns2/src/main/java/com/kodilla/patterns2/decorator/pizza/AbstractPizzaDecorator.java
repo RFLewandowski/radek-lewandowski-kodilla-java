@@ -9,7 +9,6 @@ public abstract class AbstractPizzaDecorator implements PizzaOrder {
         this.pizzaOrder = pizzaOrder;
     }
 
-
     @Override
     public BigDecimal getCost() {
         return pizzaOrder.getCost();
