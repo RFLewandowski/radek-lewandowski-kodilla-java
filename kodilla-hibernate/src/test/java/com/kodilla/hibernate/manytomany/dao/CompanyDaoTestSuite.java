@@ -2,6 +2,7 @@ package com.kodilla.hibernate.manytomany.dao;
 
 import com.kodilla.hibernate.manytomany.Company;
 import com.kodilla.hibernate.manytomany.Employee;
+import com.kodilla.hibernate.manytomany.ManageEmployeesAndCompanies;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -16,19 +17,21 @@ import java.util.List;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class CompanyDaoTestSuite {
-    @Autowired
-    CompanyDao companyDao;
 
     @Autowired
-    EmployeeDao employeeDao;
+    private ManageEmployeesAndCompanies empAndCompManager;
 
-    Employee johnSmith = null;
-    Employee stephanieClarckson = null;
-    Employee lindaKovalsky = null;
+    private CompanyDao companyDao = null;
+    private EmployeeDao employeeDao = null;
 
-    Company softwareMachine = null;
-    Company dataMaesters = null;
-    Company greyMatter = null;
+
+    private Employee johnSmith = null;
+    private Employee stephanieClarckson = null;
+    private Employee lindaKovalsky = null;
+
+    private Company softwareMachine = null;
+    private Company dataMaesters = null;
+    private Company greyMatter = null;
 
     @Test
     public void Should_SaveManyEmployeesToManyCompanies() {
@@ -106,28 +109,22 @@ public class CompanyDaoTestSuite {
     }
 
     @Before
-    public void setUp() {
-        johnSmith = new Employee("John", "Smith");
-        stephanieClarckson = new Employee("Stephanie", "Clarckson");
-        lindaKovalsky = new Employee("Linda", "Kovalsky");
+    public void setUp() throws Exception {
+        empAndCompManager.setUp();
 
-        softwareMachine = new Company("Software Machine");
-        dataMaesters = new Company("Data Maesters");
-        greyMatter = new Company("Grey Matter");
+        johnSmith = empAndCompManager.getJohnSmith();
+        stephanieClarckson = empAndCompManager.getStephanieClarckson();
+        lindaKovalsky = empAndCompManager.getLindaKovalsky();
+        softwareMachine = empAndCompManager.getSoftwareMachine();
+        dataMaesters = empAndCompManager.getDataMaesters();
+        greyMatter = empAndCompManager.getGreyMatter();
+
+        companyDao = empAndCompManager.getCompanyDao();
+        employeeDao = empAndCompManager.getEmployeeDao();
     }
 
     @After
-    public void tearDown() {
-        try {
-            companyDao.delete(softwareMachine);
-            companyDao.delete(dataMaesters);
-            companyDao.delete(greyMatter);
-
-            employeeDao.delete(johnSmith);
-            employeeDao.delete(stephanieClarckson);
-            employeeDao.delete(lindaKovalsky);
-        } catch (Exception e) {
-            //do nothing
-        }
+    public void tearDown() throws Exception {
+        empAndCompManager.tearDown();
     }
 }

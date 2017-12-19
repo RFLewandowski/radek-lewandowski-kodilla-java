@@ -29,6 +29,7 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-validation')
 	runtime('mysql:mysql-connector-java:8.0.8-dmr')
 	testCompile("org.springframework.boot:spring-boot-starter-test:${springBootVersion}")
+	testCompile('org.projectlombok:lombok:1.16.18')
 	compileOnly('org.projectlombok:lombok:1.16.18')
 	testCompile('org.mockito:mockito-all:1.10.19')
 	testCompile('junit:junit:4.12')
