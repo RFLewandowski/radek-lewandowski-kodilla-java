@@ -5,7 +5,7 @@ import org.junit.Test;
 
 public class ForumUserTestSuite {
     @Test
-    public void update() throws Exception {
+    public void Should_Update() throws Exception {
         //Given
         ForumTopic javaHelpForum = new JavaHelpForumTopic();
         ForumTopic javaToolsForum = new JavaToolsForumTopic();
