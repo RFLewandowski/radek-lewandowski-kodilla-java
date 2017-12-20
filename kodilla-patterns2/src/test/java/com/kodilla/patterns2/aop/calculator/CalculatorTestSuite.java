@@ -8,19 +8,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.math.BigDecimal;
+
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class CalculatorTestSuite {
+
     @Autowired
     private Calculator calculator;
     private static final Logger LOGGER =
             LoggerFactory.getLogger(CalculatorTestSuite.class);
 
     @Test
-    public void testAdd() {
+    public void Should_TestAdd() {
         //Given
         //When
         double result = calculator.add(10, 15);
@@ -30,7 +34,7 @@ public class CalculatorTestSuite {
     }
 
     @Test
-    public void testSub() {
+    public void Should_TestSub() {
         //Given
         //When
         double result = calculator.sub(10, 15);
@@ -40,7 +44,7 @@ public class CalculatorTestSuite {
     }
 
     @Test
-    public void testMul() {
+    public void Should_TestMul() {
         //Given
         //When
         double result = calculator.mul(10, 15);
@@ -50,12 +54,24 @@ public class CalculatorTestSuite {
     }
 
     @Test
-    public void testDiv() {
+    public void Should_TestDiv() {
         //Given
         //When
         double result = calculator.div(15, 5);
         //Then
         LOGGER.info("Testing div method");
         assertEquals(3, result, 0);
+    }
+
+    @Test
+    public void Should_TestFactorial() throws Exception {
+        //Given
+        //When
+        BigDecimal result = calculator.factorial(new BigDecimal("1000"));
+        //Then
+        LOGGER.info("Testing factorial method");
+        System.out.println(result);
+        assertTrue(BigDecimal.ONE.compareTo(result) < 0);
+
     }
 }
