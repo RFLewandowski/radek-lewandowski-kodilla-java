@@ -12,7 +12,7 @@ public class SalaryAdapterTestSuite {
         Workers workers = new Workers();
         SalaryAdapter salaryAdapter = new SalaryAdapter();
         //When
-        double totalSalary = salaryAdapter.TotalSalary(workers.getWorkers(), workers.getSalaries());
+        double totalSalary = salaryAdapter.totalSalary(workers.getWorkers(), workers.getSalaries());
         //Then
         System.out.println(totalSalary);
         assertEquals(27750, totalSalary, 0);
