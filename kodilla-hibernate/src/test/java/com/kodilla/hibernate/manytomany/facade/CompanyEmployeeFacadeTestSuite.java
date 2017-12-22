@@ -2,7 +2,6 @@ package com.kodilla.hibernate.manytomany.facade;
 
 import com.kodilla.hibernate.manytomany.Company;
 import com.kodilla.hibernate.manytomany.Employee;
-import com.kodilla.hibernate.manytomany.ManageEmployeesAndCompanies;
 import com.kodilla.hibernate.manytomany.dao.CompanyDao;
 import com.kodilla.hibernate.manytomany.dao.EmployeeDao;
 import org.junit.After;
@@ -24,13 +23,25 @@ public class CompanyEmployeeFacadeTestSuite {
     private CompanyEmployeeFacade companyEmployeeFacade;
 
     @Autowired
-    private ManageEmployeesAndCompanies empAndCompManager;
+    private CompanyDao companyDao;
 
-    private CompanyDao companyDao = null;
-    private EmployeeDao employeeDao = null;
+    @Autowired
+    private EmployeeDao employeeDao;
 
     private Employee johnSmith = null;
     private Company greyMatter = null;
+
+    @Before
+    public void setUp() {
+        johnSmith = new Employee("John", "Smith");
+        greyMatter = new Company("Grey Matter");
+    }
+
+    @After
+    public void tearDown() throws Exception {
+        employeeDao.delete(johnSmith);
+        companyDao.delete(greyMatter);
+    }
 
     @Test
     public void ShouldFindCompanybyPartOfName() {
@@ -52,22 +63,4 @@ public class CompanyEmployeeFacadeTestSuite {
         System.out.println("test");
         Assert.assertEquals(johnSmith.getLastname(), actualEmployee.get(0).getLastname());
     }
-
-
-    @Before
-    public void setUp() {
-        empAndCompManager.setUp();
-
-        johnSmith = empAndCompManager.getJohnSmith();
-        greyMatter = empAndCompManager.getGreyMatter();
-
-        companyDao = empAndCompManager.getCompanyDao();
-        employeeDao = empAndCompManager.getEmployeeDao();
-    }
-
-    @After
-    public void tearDown() throws Exception {
-        empAndCompManager.tearDown();
-    }
-
 }

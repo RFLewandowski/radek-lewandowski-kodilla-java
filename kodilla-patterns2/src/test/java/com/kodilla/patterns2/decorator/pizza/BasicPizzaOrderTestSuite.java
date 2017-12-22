@@ -11,8 +11,8 @@ public class BasicPizzaOrderTestSuite {
     public void Should_GetCost_When_OrderedWithSauceAndCheese() throws Exception {
         //Given
         PizzaOrder pizza = new BasicPizzaOrder();
-        pizza = new PizzaWithCheese(pizza);
-        pizza = new PizzaWithSauce(pizza);
+        pizza = new CheeseIngredient(pizza);
+        pizza = new SauceIngredient(pizza);
 
         //When
         BigDecimal actulCost = pizza.getCost();
@@ -25,8 +25,8 @@ public class BasicPizzaOrderTestSuite {
     public void Should_GetDescription_When_OrderedWithSauceAndCheese() throws Exception {
         //Given
         PizzaOrder pizza = new BasicPizzaOrder();
-        pizza = new PizzaWithCheese(pizza);
-        pizza = new PizzaWithSauce(pizza);
+        pizza = new CheeseIngredient(pizza);
+        pizza = new SauceIngredient(pizza);
 
         //When
         String actulDescription = pizza.getDescription();
