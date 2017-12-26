@@ -22,23 +22,28 @@ public class OrderFacade {
     public void processOrder(final OrderDto order, final Long userId) throws OrderProcessingException {
         long orderId = shopService.openOrder(userId);
         log.info("Registering new order, ID: " + orderId);
-        validate(orderId < 0, OrderProcessingException.ERR_NOT_AUTHORISED);
+        validateAuth(orderId < 0);
 
         try {
             addItemsToOrder(orderId, order);
             BigDecimal value = shopService.calculateValue(orderId);
             log.info("Order valuse is: " + value + " USD");
 
-            validate(shopService.verifyOrder(orderId), OrderProcessingException.ERR_PAYMENT_REJECTED);
+            validatePayment(shopService.verifyOrder(orderId));
             log.info("Payment for order was done");
 
-            validate(shopService.verifyOrder(orderId), OrderProcessingException.ERR_VERIFICATION_ERROR);
+            validateVerification(shopService.verifyOrder(orderId));
             log.info("Order is ready to submit");
 
-            validate(shopService.submitOrder(orderId), OrderProcessingException.ERR_SUBMITTING_ERROR);
+            validateSubmittal(shopService.submitOrder(orderId));
             log.info("Order " + orderId + " submitted");
 
-        } finally {
+
+        }
+        catch (OrderProcessingException e){
+            log.error("Order validation failed", e);
+        }
+        finally {
             if (wasError) {
                 log.info("Cancelling order " + orderId);
                 shopService.cancelOrder(orderId);
@@ -46,9 +51,27 @@ public class OrderFacade {
         }
     }
 
-    private void validate(boolean isProcessOk, String errorType) throws OrderProcessingException {
+    private void validateAuth(boolean isProcessOk) throws OrderProcessingException {
         if (!isProcessOk) {
-            manageProcessingException(errorType);
+            manageProcessingException(OrderProcessingException.ERR_NOT_AUTHORISED);
+        }
+    }
+
+    private void validatePayment(boolean isProcessOk) throws OrderProcessingException {
+        if (!isProcessOk) {
+            manageProcessingException(OrderProcessingException.ERR_PAYMENT_REJECTED);
+        }
+    }
+
+    private void validateVerification(boolean isProcessOk) throws OrderProcessingException {
+        if (!isProcessOk) {
+            manageProcessingException(OrderProcessingException.ERR_VERIFICATION_ERROR);
+        }
+    }
+
+    private void validateSubmittal(boolean isProcessOk) throws OrderProcessingException {
+        if (!isProcessOk) {
+            manageProcessingException(OrderProcessingException.ERR_SUBMITTING_ERROR);
         }
     }
 
