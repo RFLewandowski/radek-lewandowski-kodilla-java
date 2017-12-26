@@ -17,8 +17,6 @@ public class OrderFacade {
         this.shopService = shopService;
     }
 
-    private boolean wasError = false;
-
     public void processOrder(final OrderDto order, final Long userId) throws OrderProcessingException {
         long orderId = shopService.openOrder(userId);
         log.info("Registering new order, ID: " + orderId);
@@ -38,16 +36,10 @@ public class OrderFacade {
             validateSubmittal(shopService.submitOrder(orderId));
             log.info("Order " + orderId + " submitted");
 
-
-        }
-        catch (OrderProcessingException e){
+        } catch (OrderProcessingException e) {
             log.error("Order validation failed", e);
-        }
-        finally {
-            if (wasError) {
-                log.info("Cancelling order " + orderId);
-                shopService.cancelOrder(orderId);
-            }
+            log.info("Cancelling order " + orderId);
+            shopService.cancelOrder(orderId);
         }
     }
 
@@ -85,7 +77,6 @@ public class OrderFacade {
 
     private void manageProcessingException(String errorType) throws OrderProcessingException {
         log.error(errorType);
-        wasError = true;
         throw new OrderProcessingException(errorType);
     }
 }
