@@ -4,15 +4,14 @@ import com.kodilla.testing2.config.WebDriverConfig;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.Select;
 
 import java.util.Random;
 import java.util.stream.Collectors;
 
 import static org.junit.Assert.assertTrue;
+
 
 public class CrudAppTestSuite {
 
@@ -42,14 +41,15 @@ public class CrudAppTestSuite {
 
 
     private void deleteCrudAppTestTask(String taskName) throws InterruptedException {
-        WebDriver removalDriver = WebDriverConfig.getDriver(WebDriverConfig.CHROME);
-        removalDriver.get(BASE_URL);
+        try {
+            driver.get(BASE_URL);
+        } catch (UnhandledAlertException f) {
+            handleAlertException(f);
+        }
 
-        removalDriver.navigate().refresh();
+        while (!driver.findElement(By.xpath("//select[1]")).isDisplayed()) ;
 
-        while (!removalDriver.findElement(By.xpath("//select[1]")).isDisplayed()) ;
-
-        removalDriver.findElements(By.xpath("//form[@class=\"datatable__row\"]"))
+        driver.findElements(By.xpath("//form[@class=\"datatable__row\"]"))
                 .stream()
                 .filter(anyForm ->
                         anyForm.findElement(By.xpath(".//p[@class=\"datatable__field-value\"]"))
@@ -60,22 +60,25 @@ public class CrudAppTestSuite {
                     buttonDelete.click();
                 });
         Thread.sleep(2000);
-        removalDriver.close();
     }
 
     private boolean checkTaskExistsInTrello(String taskName) throws InterruptedException {
         final String TRELLO_URL = "https://trello.com/login";
         boolean result = false;
-        WebDriver driverTrello = WebDriverConfig.getDriver(WebDriverConfig.CHROME);
-        driverTrello.get(TRELLO_URL);
+        try {
+            driver.navigate().refresh();
+        } catch (UnhandledAlertException f) {
+            handleAlertException(f);
+        }
+        driver.get(TRELLO_URL);
 
-        driverTrello.findElement(By.id("user")).sendKeys("dummyUser");
-        driverTrello.findElement(By.id("password")).sendKeys("dummyPassword");
-        driverTrello.findElement(By.id("login")).submit();
+        driver.findElement(By.id("user")).sendKeys("dummy");
+        driver.findElement(By.id("password")).sendKeys("dummy");
+        driver.findElement(By.id("login")).submit();
 
         Thread.sleep(2000);
 
-        driverTrello.findElements(By.xpath("//a[@class=\"board-tile\"]"))
+        driver.findElements(By.xpath("//a[@class=\"board-tile\"]"))
                 .stream()
                 .filter(aHref -> aHref
                         .findElements(By.xpath(".//span[@title=\"Kodilla Application\"]"))
@@ -84,15 +87,13 @@ public class CrudAppTestSuite {
 
         Thread.sleep(2000);
 
-        result = driverTrello.findElements(By.xpath("//span"))
+        result = driver.findElements(By.xpath("//span"))
                 .stream()
                 .filter(theSpan -> theSpan
                         .getText()
                         .contains(taskName))
                 .collect(Collectors.toList())
                 .size() > 0;
-
-        driverTrello.close();
 
         return result;
     }
@@ -138,5 +139,17 @@ public class CrudAppTestSuite {
         button.click();
         Thread.sleep(2000);
         return taskName;
+    }
+
+    private void handleAlertException(UnhandledAlertException f) {
+        System.err.println(f.getMessage());
+        try {
+            driver
+                    .switchTo()
+                    .alert()
+                    .dismiss();
+        } catch (NoAlertPresentException e) {
+            e.printStackTrace();
+        }
     }
 }
